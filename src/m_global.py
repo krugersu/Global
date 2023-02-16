@@ -1,4 +1,3 @@
-
 import subprocess
 
 #subprocess.call("/home/bat/Project/Python/Kruger/Artix_gen/src/main.py", shell=True)

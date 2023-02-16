@@ -1,0 +1,6 @@
+[project]
+name = "Faceback"
+description = "Powerful AI which renders the back of somebody's head, based on their face."
+version = "1.0.0"
+updated = 1979-05-27T07:32:00Z
+author = "Todd Birchard"

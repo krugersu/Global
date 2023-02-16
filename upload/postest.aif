@@ -1,0 +1,497 @@
+### data begin ###
+{"command": "clearInventory"}
+---
+{"command": "clearTmcScale"}
+---
+{
+  "command": "addInventItem",
+  "invent": {
+    "inventcode": "КН000339   ",
+    "name": "ПЭТ бутылка 1л",
+    "barcodes": [
+      {
+        "aspectvaluesetcode": 0,
+        "barcode": "4600003390014",
+        "cquant": 0.0,
+        "measurecode": 0,
+        "minprice": null,
+        "name": "ПЭТ бутылка 1л",
+        "packingmeasure": 0,
+        "packingprice": 0.0,
+        "price": null,
+        "quantdefault": 0.0,
+        "minretailprice": 0.0,
+        "customsdeclarationnumber": "",
+        "tmctype": 0,
+        "ntin": ""
+      }
+    ],
+    "price": 15.0,
+    "minprice": 0.0,
+    "additionalprices": [
+      {
+        "pricecode": 0,
+        "price": 0.0,
+        "name": ""
+      }
+    ],
+    "options": {
+      "inventitemoptions": {
+        "disablebackinsale": 1,
+        "disableinventshow": 0,
+        "disableinventsale": 0,
+        "disableinventback": 0,
+        "requiredepartmentmanual": 0,
+        "enabledepartmentmanual": 0,
+        "enablebarcodemanual": 1,
+        "enablebarcodescanner": 1,
+        "visualverify": 0,
+        "ageverify": 0,
+        "requiresalerestrict": 0,
+        "egaisverify": 0,
+        "prepackaged": 0,
+        "nopdfegaisverify": 0,
+        "alcoset": 0,
+        "freesale": 0,
+        "rfidverify": 0,
+        "lowweight": 0,
+        "weightcontrolbypass": 0,
+        "tobacco": 0,
+        "shoes": 0,
+        "fuzzyweight": 0,
+        "ignoremarking": 0,
+        "markdownverify": 0
+      },
+      "priceoptions": {
+        "enablepricemanual": 0,
+        "requirepricemanual": 0,
+        "requireselectprice": 0,
+        "requiredeferredprice": 0,
+        "enableexcisemarkprice": 0
+      },
+      "quantityoptions": {
+        "enabledefaultquantity": 1,
+        "enablequantitylimit": 0,
+        "quantitylimit": 0.0,
+        "enablequantityscales": 1,
+        "enablequantitybarcode": 0,
+        "enablequantitymanual": 1,
+        "requirequantitymanual": 0,
+        "requirequantitybarcode": 0,
+        "requirequantityscales": 0,
+        "enabledocumentquantitylimit": 0,
+        "autogetquantityfromscales": 0,
+        "documentquantlimit": 0.0
+      }
+    },
+    "sellrestrictperiods": [
+      {
+        "dateend": "",
+        "datestart": "",
+        "dayend": 0,
+        "daystart": 0,
+        "timeend": "",
+        "timestart": ""
+      }
+    ],
+    "extendedoptions": "",
+    "discautoscheme": 0,
+    "deptcode": 0,
+    "taxgroupcode": 0,
+    "measurecode": 796,
+    "remain": 1.0,
+    "remaindate": "",
+    "articul": "10339",
+    "defaultquantity": 0.0,
+    "taramode": 1,
+    "taracapacity": 1.0,
+    "aspectschemecode": null,
+    "aspectvaluesetcode": null,
+    "aspectusecase": "",
+    "aspectselectionrule": "",
+    "age": 0,
+    "alcoholpercent": 0.0,
+    "cquant": 0.0,
+    "inn": "",
+    "kpp": "",
+    "alctypecode": 0,
+    "paymentobject": 0,
+    "manufacturercountrycode": 0,
+    "opmode": 0,
+    "loyaltymode": 0,
+    "minretailprice": 0.0,
+    "Parent": 0,
+    "isParent": ""
+  }
+}
+---
+{
+  "command": "addInventItem",
+  "invent": {
+    "inventcode": "ЦБ-00003233",
+    "name": "Пивной напиток Миллер Дженьюин Драфт ст/б 0,33",
+    "barcodes": [
+      {
+        "aspectvaluesetcode": 0,
+        "barcode": "4605664002719",
+        "cquant": 0.0,
+        "measurecode": 0,
+        "minprice": null,
+        "name": "Пивной напиток Миллер Дженьюин Драфт ст/б 0,33",
+        "packingmeasure": 0,
+        "packingprice": 0.0,
+        "price": null,
+        "quantdefault": 0.0,
+        "minretailprice": 0.0,
+        "customsdeclarationnumber": "",
+        "tmctype": 0,
+        "ntin": ""
+      }
+    ],
+    "price": 107.0,
+    "minprice": 0.0,
+    "additionalprices": [
+      {
+        "pricecode": 0,
+        "price": 0.0,
+        "name": ""
+      }
+    ],
+    "options": {
+      "inventitemoptions": {
+        "disablebackinsale": 1,
+        "disableinventshow": 0,
+        "disableinventsale": 0,
+        "disableinventback": 1,
+        "requiredepartmentmanual": 0,
+        "enabledepartmentmanual": 0,
+        "enablebarcodemanual": 1,
+        "enablebarcodescanner": 1,
+        "visualverify": 0,
+        "ageverify": 1,
+        "requiresalerestrict": 0,
+        "egaisverify": 0,
+        "prepackaged": 0,
+        "nopdfegaisverify": 0,
+        "alcoset": 0,
+        "freesale": 0,
+        "rfidverify": 0,
+        "lowweight": 0,
+        "weightcontrolbypass": 0,
+        "tobacco": 0,
+        "shoes": 0,
+        "fuzzyweight": 0,
+        "ignoremarking": 0,
+        "markdownverify": 0
+      },
+      "priceoptions": {
+        "enablepricemanual": 0,
+        "requirepricemanual": 0,
+        "requireselectprice": 0,
+        "requiredeferredprice": 0,
+        "enableexcisemarkprice": 0
+      },
+      "quantityoptions": {
+        "enabledefaultquantity": 1,
+        "enablequantitylimit": 0,
+        "quantitylimit": 0.0,
+        "enablequantityscales": 1,
+        "enablequantitybarcode": 0,
+        "enablequantitymanual": 1,
+        "requirequantitymanual": 0,
+        "requirequantitybarcode": 0,
+        "requirequantityscales": 0,
+        "enabledocumentquantitylimit": 0,
+        "autogetquantityfromscales": 0,
+        "documentquantlimit": 0.0
+      }
+    },
+    "sellrestrictperiods": [
+      {
+        "dateend": "",
+        "datestart": "",
+        "dayend": 0,
+        "daystart": 0,
+        "timeend": "",
+        "timestart": ""
+      }
+    ],
+    "extendedoptions": "",
+    "discautoscheme": 0,
+    "deptcode": 0,
+    "taxgroupcode": 0,
+    "measurecode": 796,
+    "remain": 15.0,
+    "remaindate": "",
+    "articul": "17354",
+    "defaultquantity": 0.0,
+    "taramode": 0,
+    "taracapacity": 0.0,
+    "aspectschemecode": null,
+    "aspectvaluesetcode": null,
+    "aspectusecase": "",
+    "aspectselectionrule": "",
+    "age": 0,
+    "alcoholpercent": 4.7,
+    "cquant": 0.0,
+    "inn": "",
+    "kpp": "",
+    "alctypecode": 520,
+    "paymentobject": 0,
+    "manufacturercountrycode": 0,
+    "opmode": 0,
+    "loyaltymode": 0,
+    "minretailprice": 0.0,
+    "Parent": 1,
+    "isParent": ""
+  }
+}
+---
+{
+  "command": "addInventItem",
+  "invent": {
+    "inventcode": "ЦБ-00007257",
+    "name": "Пиво Старый Мельник из Бочонка Мягкое светлое 1л",
+    "barcodes": [
+      {
+        "aspectvaluesetcode": 0,
+        "barcode": "2200518001454",
+        "cquant": 0.0,
+        "measurecode": 0,
+        "minprice": null,
+        "name": "Пиво Старый Мельник из Бочонка Мягкое светлое 1л",
+        "packingmeasure": 0,
+        "packingprice": 0.0,
+        "price": null,
+        "quantdefault": 0.0,
+        "minretailprice": 0.0,
+        "customsdeclarationnumber": "",
+        "tmctype": 0,
+        "ntin": ""
+      }
+    ],
+    "price": 99.0,
+    "minprice": 0.0,
+    "additionalprices": [
+      {
+        "pricecode": 0,
+        "price": 0.0,
+        "name": ""
+      }
+    ],
+    "options": {
+      "inventitemoptions": {
+        "disablebackinsale": 1,
+        "disableinventshow": 0,
+        "disableinventsale": 0,
+        "disableinventback": 1,
+        "requiredepartmentmanual": 0,
+        "enabledepartmentmanual": 0,
+        "enablebarcodemanual": 1,
+        "enablebarcodescanner": 1,
+        "visualverify": 0,
+        "ageverify": 1,
+        "requiresalerestrict": 0,
+        "egaisverify": 0,
+        "prepackaged": 0,
+        "nopdfegaisverify": 0,
+        "alcoset": 0,
+        "freesale": 0,
+        "rfidverify": 0,
+        "lowweight": 0,
+        "weightcontrolbypass": 0,
+        "tobacco": 0,
+        "shoes": 0,
+        "fuzzyweight": 0,
+        "ignoremarking": 0,
+        "markdownverify": 0
+      },
+      "priceoptions": {
+        "enablepricemanual": 0,
+        "requirepricemanual": 0,
+        "requireselectprice": 0,
+        "requiredeferredprice": 0,
+        "enableexcisemarkprice": 0
+      },
+      "quantityoptions": {
+        "enabledefaultquantity": 1,
+        "enablequantitylimit": 0,
+        "quantitylimit": 0.0,
+        "enablequantityscales": 1,
+        "enablequantitybarcode": 0,
+        "enablequantitymanual": 1,
+        "requirequantitymanual": 0,
+        "requirequantitybarcode": 0,
+        "requirequantityscales": 0,
+        "enabledocumentquantitylimit": 0,
+        "autogetquantityfromscales": 0,
+        "documentquantlimit": 0.0
+      }
+    },
+    "sellrestrictperiods": [
+      {
+        "dateend": "",
+        "datestart": "",
+        "dayend": 0,
+        "daystart": 0,
+        "timeend": "",
+        "timestart": ""
+      }
+    ],
+    "extendedoptions": "",
+    "discautoscheme": 0,
+    "deptcode": 0,
+    "taxgroupcode": 0,
+    "measurecode": 112,
+    "remain": 15.0,
+    "remaindate": "",
+    "articul": "21369",
+    "defaultquantity": 0.0,
+    "taramode": 2,
+    "taracapacity": 0.0,
+    "aspectschemecode": null,
+    "aspectvaluesetcode": null,
+    "aspectusecase": "",
+    "aspectselectionrule": "",
+    "age": 0,
+    "alcoholpercent": 4.3,
+    "cquant": 0.0,
+    "inn": "",
+    "kpp": "",
+    "alctypecode": 500,
+    "paymentobject": 0,
+    "manufacturercountrycode": 0,
+    "opmode": 0,
+    "loyaltymode": 0,
+    "minretailprice": 0.0,
+    "Parent": 1,
+    "isParent": ""
+  }
+}
+---
+{
+  "command": "addInventItem",
+  "invent": {
+    "inventcode": "ЦБ-00000529",
+    "name": "Пиво Чешское Элитное светлое Бочкари 1л",
+    "barcodes": [
+      {
+        "aspectvaluesetcode": 0,
+        "barcode": "2200000000545",
+        "cquant": 0.0,
+        "measurecode": 0,
+        "minprice": null,
+        "name": "Пиво Чешское Элитное светлое Бочкари 1л",
+        "packingmeasure": 0,
+        "packingprice": 0.0,
+        "price": null,
+        "quantdefault": 0.0,
+        "minretailprice": 0.0,
+        "customsdeclarationnumber": "",
+        "tmctype": 0,
+        "ntin": ""
+      }
+    ],
+    "price": 101.0,
+    "minprice": 0.0,
+    "additionalprices": [
+      {
+        "pricecode": 0,
+        "price": 0.0,
+        "name": ""
+      }
+    ],
+    "options": {
+      "inventitemoptions": {
+        "disablebackinsale": 1,
+        "disableinventshow": 0,
+        "disableinventsale": 0,
+        "disableinventback": 1,
+        "requiredepartmentmanual": 0,
+        "enabledepartmentmanual": 0,
+        "enablebarcodemanual": 1,
+        "enablebarcodescanner": 1,
+        "visualverify": 0,
+        "ageverify": 1,
+        "requiresalerestrict": 0,
+        "egaisverify": 0,
+        "prepackaged": 0,
+        "nopdfegaisverify": 0,
+        "alcoset": 0,
+        "freesale": 0,
+        "rfidverify": 0,
+        "lowweight": 0,
+        "weightcontrolbypass": 0,
+        "tobacco": 0,
+        "shoes": 0,
+        "fuzzyweight": 0,
+        "ignoremarking": 0,
+        "markdownverify": 0
+      },
+      "priceoptions": {
+        "enablepricemanual": 0,
+        "requirepricemanual": 0,
+        "requireselectprice": 0,
+        "requiredeferredprice": 0,
+        "enableexcisemarkprice": 0
+      },
+      "quantityoptions": {
+        "enabledefaultquantity": 1,
+        "enablequantitylimit": 0,
+        "quantitylimit": 0.0,
+        "enablequantityscales": 1,
+        "enablequantitybarcode": 0,
+        "enablequantitymanual": 1,
+        "requirequantitymanual": 0,
+        "requirequantitybarcode": 0,
+        "requirequantityscales": 0,
+        "enabledocumentquantitylimit": 0,
+        "autogetquantityfromscales": 0,
+        "documentquantlimit": 0.0
+      }
+    },
+    "sellrestrictperiods": [
+      {
+        "dateend": "",
+        "datestart": "",
+        "dayend": 0,
+        "daystart": 0,
+        "timeend": "",
+        "timestart": ""
+      }
+    ],
+    "extendedoptions": "",
+    "discautoscheme": 0,
+    "deptcode": 0,
+    "taxgroupcode": 0,
+    "measurecode": 112,
+    "remain": 25.0,
+    "remaindate": "",
+    "articul": "14125",
+    "defaultquantity": 0.0,
+    "taramode": 2,
+    "taracapacity": 0.0,
+    "aspectschemecode": null,
+    "aspectvaluesetcode": null,
+    "aspectusecase": "",
+    "aspectselectionrule": "",
+    "age": 0,
+    "alcoholpercent": 4.7,
+    "cquant": 0.0,
+    "inn": "",
+    "kpp": "",
+    "alctypecode": 500,
+    "paymentobject": 0,
+    "manufacturercountrycode": 0,
+    "opmode": 0,
+    "loyaltymode": 0,
+    "minretailprice": 0.0,
+    "Parent": 1,
+    "isParent": ""
+  }
+}
+---
+---
+{"command": "clearAspectValueSet"}
+---
+### data end ###
