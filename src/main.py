@@ -33,19 +33,20 @@ import schedule, time
 import file_wr, request
 import app_logger
 import db
+import dbMysql
 import pathlib
 from pathlib import Path 
 import workDB
 import tlgrm
 import create_aif
-import m_request
+import request
 
 #: Global Constants
 logger = app_logger.get_logger(__name__)
 cPath = Path(os.getcwd())
-cPath.joinpath('Workshift_load', 'src')
-fileinit = '/home/administrator/Workshift_load/src/first.dat'
-sys.path.insert(1,'/home/administrator/Workshift_load/src/')
+cPath.joinpath('Global', 'src')
+fileinit = '/home/administrator/Global/src/first.dat'
+sys.path.insert(1,'/home/administrator/Global/src/')
 """Для логирования событий"""
 
 
@@ -80,8 +81,8 @@ def main():
    
    c_shop = []
    # Apoc по магазинам с изменения
-   tData = db.workDb(rc)
-   rec_con = m_request.req1C(rc)
+   tData = dbMysql.workDb(rc)
+   rec_con = request.req1C(rc)
    mCount = request.req1C(rc)
    
    # Список открытых смен от последнего зафиксированного времени
