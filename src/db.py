@@ -39,7 +39,7 @@ class workDb:
     def __init__(self,rc, c_count = None):
         
         self.pathDB = Path("data", "myDB.sqlite")
-        
+        print(Path("data", "myDB.sqlite"))
         if sys.platform.startswith("linux"):  # could be "linux", "linux2", "linux3", ...
                 pysqlite3.paramstyle = 'named'
                 self._all_db = pysqlite3.connect(self.pathDB)
@@ -48,9 +48,10 @@ class workDb:
         elif sys.platform == "win32":
             sqlite3.paramstyle = 'named'
             self._all_db = sqlite3.connect(self.pathDB)
-        
+        logging.info('Connect DB')    
         self.sale_dict = []
         
+        logging.info('Start create DB')    
         self.pathScript = Path("data", "createDB.sql") 
         self._cursor = self._all_db.cursor()
         self.baseTableName = 'invent'
@@ -62,7 +63,7 @@ class workDb:
             user=rc._sections.artix.user,
             passwd=rc._sections.artix.passwd)
         self._mycursor = self.mydb.cursor() #cursor created
-
+        logging.info('Connect to MySql DB')    
         
     def __enter__(self):
         
@@ -139,12 +140,19 @@ class workDb:
     def uploadData(self,c_count, shop_Number):
                 
         self.createDB()
+        logging.debug('Function call - recursive_items(c_count)' )
         self.recursive_items(c_count)
+        logging.debug('Function call - calculating_the_amount()' )
         self.calculating_the_amount()
+        logging.debug('Function call - delete_analog()' )
         self.delete_analog()
+        logging.debug('Function call - delete_null_parent()' )
         self.delete_null_parent()
+        logging.debug('Function call - querySales()' )
         self.querySales()
+        logging.debug('Function call - calculateSales()' )
         self.calculateSales()
+        logging.debug('Function call - ctest_db(shop_Number)' )
         self.test_db(shop_Number)
         
     def recursive_items(self,dictionary):
@@ -177,16 +185,18 @@ class workDb:
         pprint(self.sale_dict)
         
         
-        logging.info('workshift - ' + str(dictionary.wsunf))    
-        logging.info('End add DB from 1C')    
+        logging.info('workshift from UNF - ' + str(dictionary.wsunf))    
+        logging.info('End add DB from UNF')    
         logging.info('added - ' + str(count) + ' records')    
 
 
     def calculating_the_amount(self):
         """Запускает SQL скрипт, который переносит количество с аналагов пива на головную номенклатуру"""        
         pathScript = Path("data", "upd.sql") 
+        pprint(Path("data", "upd.sql"))
         with open(pathScript, 'r') as sql_file:
             sql_script = sql_file.read()
+            print(sql_script)
         self._cursor.executescript(sql_script)
         logging.info('Summ analog calcalating')  
         
@@ -397,7 +407,10 @@ class workDb:
         
         
         
-        
+    def close_db_connection(self):
+        self._mycursor.close()
+        self.mydb.close()
+        logging.info('DB is closed!!!')    
         # def recursive_items(self,dictionary):
             
         # logging.info('Start add DB from 1C')

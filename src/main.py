@@ -130,7 +130,7 @@ def main():
    logger.info(u'End programs')   
    logger.info(u'*****************************************************************')   
 
-   tData.close_db_connection()
+  # tData.close_db_connection()  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 def init_pr():
 
