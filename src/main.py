@@ -38,11 +38,15 @@ from pathlib import Path
 import workDB
 import tlgrm
 import create_aif
+import m_request
 
 #: Global Constants
 logger = app_logger.get_logger(__name__)
+cPath = Path(os.getcwd())
+cPath.joinpath('Workshift_load', 'src')
+fileinit = '/home/administrator/Workshift_load/src/first.dat'
+sys.path.insert(1,'/home/administrator/Workshift_load/src/')
 """Для логирования событий"""
-
 
 
 
@@ -55,6 +59,12 @@ logger = app_logger.get_logger(__name__)
 # Functions
 def main():
    """ Main program entry. """
+   # Если это первый запуск системы
+   if not os.path.exists(fileinit):
+      with open(fileinit, 'w', encoding='utf-8') as outfile:
+            outfile.write('')    
+            init_pr()
+
    
    path = Path("config", "config.ini") 
    
@@ -86,6 +96,18 @@ def main():
    logger.info(u'End programs')   
    logger.info(u'*****************************************************************')   
 
+
+def init_pr():
+
+   filename = '/home/administrator/Workshift_load/src/last_date.txt'
+   if not os.path.exists(filename):
+      with open(filename, 'w', encoding='utf-8') as outfile:
+            outfile.write('1')#'2023-01-01 00:00:00'
+            
+   filename = '/home/administrator/Workshift_load/src/last_date_open.txt'
+   if not os.path.exists(filename):
+      with open(filename, 'w', encoding='utf-8') as outfile:
+            outfile.write('1')  # '2023-01-01 00:00:00'
 
 
 #schedule.every(10).seconds.do(job1, p='Через 10 секунд')
