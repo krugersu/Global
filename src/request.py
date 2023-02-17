@@ -42,9 +42,7 @@ class req1C:
                                    + self.mConfig._sections.one_C.port 
                                    + self.mConfig._sections.one_C.shopquery)
                     
-            #   print(r.url)     
                r.encoding = 'utf-8' 
-            #   print(r.status_code)
                c_count = r.json()
                listShop = self._getDirM(c_count)
                return listShop  # c_count
@@ -69,7 +67,7 @@ class req1C:
                
 
 # ?  r = requests.get('http://192.168.252.250:8082/UNF_test/hs/test_s/V1/test_1')
-               # r.encoding = 'utf-8' 
+
               # c_count = r.json()
                return c_count
           except Exception as e:
