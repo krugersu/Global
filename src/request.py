@@ -92,33 +92,31 @@ class req1C:
 
 
 
+#******************************   Work workshift **************************************************************************************
 
 
-
-# github = tortilla.wrap('http://192.168.252.250:8082/UNF_test/hs/')
-# user = github.test_s.get('V1/test_1?number=test')
-# for item in user.barcodes:
-    
-#     print('---------')
-#     pprint(item)
-    
-    
-    
-    
-# def getQueryShop(self):
+     def post_workshift(self,l_workshift):
           
-#           try:
-#                r = requests.get('http://' + self.mConfig._sections.one_C.server_ip + ':' 
-#                                    + self.mConfig._sections.one_C.port 
-#                                    + self.mConfig._sections.one_C.shopquery)
+          try:
+               r = requests.post('http://' + self.mConfig._sections.one_C.server_ip + ':'
+                                   + self.mConfig._sections.one_C.port
+                                   + self.mConfig._sections.one_C.workshift, data=None, json = l_workshift)
+          
+          except Exception as e:
+               logging.info('status_code - ' + str(r.status_code))
+               logging.exception(e, exc_info=False)
+               
+          return (r.status_code)
 
-#                print(r.url)     
-#                r.encoding = 'utf-8' 
-#                print(r.status_code)
-#                c_count = r.json()
-#                listShop = self._getDirM(c_count)
-#             #   print(listShop)
-#                return listShop  # c_count
-#           except Exception as e:
-#                logging.exception(e, exc_info=False)
-#           return None         
+     def post_workshift_open(self,l_workshift_open):
+          
+          try:
+               r = requests.post('http://' + self.mConfig._sections.one_C.server_ip + ':'
+                                   + self.mConfig._sections.one_C.port
+                                   + self.mConfig._sections.one_C.workshift_open, data=None, json = l_workshift_open)
+               
+          except Exception as e:
+               logging.info('status_code - ' + str(r.status_code))
+               logging.exception(e, exc_info=False)
+               
+          return (r.status_code)
