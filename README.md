@@ -1,4 +1,3 @@
-# Global
 ---
 date: "2023-02-17T11:00:00+02:00"
 title: "Global "
