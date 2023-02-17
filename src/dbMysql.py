@@ -66,19 +66,23 @@ class workDb:
         return l_workshift
 
     def save_last_date(self, t_date):
-        filename = '/home/administrator/Workshift_load/src/last_date.txt'
+     #   filename = '/home/administrator/Workshift_load/src/last_date.txt'
+        filename = '/home/bat/Project/Python/Kruger/Global/src/last_date.txt'
+     
         with open(filename, 'w', encoding='utf-8') as outfile:
             outfile.write(str(t_date))
 
     def save_last_date_open(self, t_date):
-        filename = '/home/administrator/Workshift_load/src/last_date_open.txt'
+        #filename = '/home/administrator/Workshift_load/src/last_date_open.txt'
+        filename = '/home/bat/Project/Python/Kruger/Global/src/last_date_open.txt'
         with open(filename, 'w', encoding='utf-8') as outfile:
             outfile.write(str(t_date))
 
     def load_last_date(self):
         logging.info(
             'Reading the file with the date of the last closed cash shift')
-        filename = '/home/administrator/Workshift_load/src/last_date.txt'
+        #filename = '/home/administrator/Workshift_load/src/last_date.txt'
+        filename = '/home/bat/Project/Python/Kruger/Global/src/last_date.txt'
         with open(filename, 'r', encoding='utf-8') as outfile:
             return (outfile.readline())
 
@@ -86,7 +90,8 @@ class workDb:
         logging.info(
             'Reading the file with the date of the last openeded cash shift')
 
-        filename = '/home/administrator/Workshift_load/src/last_date_open.txt'
+        #filename = '/home/administrator/Workshift_load/src/last_date_open.txt'
+        filename = '/home/bat/Project/Python/Kruger/Global/src/last_date_open.txt'
         with open(filename, 'r', encoding='utf-8') as outfile:
             return (outfile.readline())
 
