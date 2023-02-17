@@ -45,8 +45,10 @@ import request
 logger = app_logger.get_logger(__name__)
 cPath = Path(os.getcwd())
 cPath.joinpath('Global', 'src')
-fileinit = '/home/administrator/Global/src/first.dat'
-sys.path.insert(1,'/home/administrator/Global/src/')
+# fileinit = '/home/administrator/Global/src/first.dat'
+# sys.path.insert(1,'/home/administrator/Global/src/')
+fileinit = '/home/bat/Project/Python/Kruger/Global/src/first.dat'
+sys.path.insert(1,'/home/bat/Project/Python/Kruger/Global/src/')
 """Для логирования событий"""
 
 
