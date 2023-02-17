@@ -134,12 +134,14 @@ def main():
 
 def init_pr():
 
-   filename = '/home/administrator/Workshift_load/src/last_date.txt'
+  # filename = '/home/administrator/Workshift_load/src/last_date.txt'
+   filename = '/home/bat/Project/Python/Kruger/Global/src/last_date.txt'
    if not os.path.exists(filename):
       with open(filename, 'w', encoding='utf-8') as outfile:
             outfile.write('1')#'2023-01-01 00:00:00'
             
-   filename = '/home/administrator/Workshift_load/src/last_date_open.txt'
+   #filename = '/home/administrator/Workshift_load/src/last_date_open.txt'
+   filename = '/home/bat/Project/Python/Kruger/Global/src/last_date_open.txt'
    if not os.path.exists(filename):
       with open(filename, 'w', encoding='utf-8') as outfile:
             outfile.write('1')  # '2023-01-01 00:00:00'
