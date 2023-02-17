@@ -38,7 +38,7 @@ class workDb:
         with open('data.json', 'w', encoding='utf-8') as f:
             logging.info('Writing a new date for closed shifts to a file')
             json.dump(l_workshift, f, ensure_ascii=False,
-                      indent=4,  default=str)
+                    indent=4,  default=str)
         # self.mydb.close()
 
         logging.info('sent workshift for 1C')
@@ -57,7 +57,7 @@ class workDb:
             # pprint(json_string)
             # f.write(json.dumps(l_workshift, ensure_ascii=False, indent=4))
             json.dump(l_workshift, f, ensure_ascii=False,
-                      indent=4,  default=str)
+                    indent=4,  default=str)
         # self.mydb.close()
 
         logging.info('sent workshift_open for 1C')
