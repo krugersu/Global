@@ -18,6 +18,8 @@ import pymysql
 #import m_config
 import codecs
 
+import app_logger
+
 
 if sys.platform.startswith("linux"):  # could be "linux", "linux2", "linux3", ...
     import pysqlite3
@@ -25,6 +27,12 @@ elif sys.platform == "darwin":
     pass
 elif sys.platform == "win32":
    import sqlite3
+
+
+logger = app_logger.get_logger(__name__)
+
+
+
 
 
 class workDb:
@@ -93,7 +101,7 @@ class workDb:
     def querySales(self):
         # Запрос в БД Артикс по текущим продажам
         #executing the query
-       # self._mycursor.execute(diff_data.qrSimpleSelectSale)
+        # self._mycursor.execute(diff_data.qrSimpleSelectSale)
         for  value in self.sale_dict:    # 
             #for k, v in value.items():
                 print(value['cashcode'])
