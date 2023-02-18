@@ -1270,3 +1270,271 @@
 2023-02-18 02:28:53 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] stat(b'/opt/OBMEN/dict/test/postest.flz')
 2023-02-18 02:28:53 | [INFO] | (main.py).|main(130) | End programs
 2023-02-18 02:28:53 | [INFO] | (main.py).|main(131) | *****************************************************************
+2023-02-18 16:19:03 | [INFO] | (main.py).|main(73) | Start programs
+2023-02-18 16:19:03 | [INFO] | (main.py).|main(74) | Current path /home/bat/Project/Python/Kruger/Global
+2023-02-18 16:19:03 | [INFO] | (dbMysql.py).|load_last_date_open(90) | Reading the file with the date of the last openeded cash shift
+2023-02-18 16:19:03 | [INFO] | (dbMysql.py).|get_last_workshift_open(63) | sent workshift_open for 1C
+2023-02-18 16:19:03 | [INFO] | (dbMysql.py).|get_last_workshift_open(64) | workshift_open - ()
+2023-02-18 16:19:03 | [INFO] | (main.py).|main(92) | Number of open cash shifts - 0
+2023-02-18 16:19:03 | [INFO] | (dbMysql.py).|load_last_date(82) | Reading the file with the date of the last closed cash shift
+2023-02-18 16:19:03 | [INFO] | (dbMysql.py).|get_last_workshift(28) | Date of the last closed cash shift - 171
+2023-02-18 16:19:03 | [INFO] | (dbMysql.py).|get_last_workshift(35) | Getting data on the last closed cash shifts
+2023-02-18 16:19:03 | [INFO] | (dbMysql.py).|get_last_workshift(39) | Writing a new date for closed shifts to a file
+2023-02-18 16:19:03 | [INFO] | (dbMysql.py).|get_last_workshift(44) | sent workshift for 1C
+2023-02-18 16:19:03 | [INFO] | (dbMysql.py).|get_last_workshift(45) | workshift - ()
+2023-02-18 16:19:03 | [INFO] | (main.py).|main(105) | Number of closed cash shifts - 0
+2023-02-18 16:19:03 | [INFO] | (dbMysql.py).|close_db_connection(131) | DB is closed!!!
+2023-02-18 16:19:03 | [DEBUG] | (connectionpool.py).|_new_conn(228) | Starting new HTTP connection (1): 192.168.252.250:8082
+2023-02-18 16:19:08 | [DEBUG] | (connectionpool.py).|_make_request(456) | http://192.168.252.250:8082 "GET /UNF_test/hs/GetChangeShop/V1/GetShop HTTP/1.1" 200 78
+2023-02-18 16:19:08 | [DEBUG] | (connectionpool.py).|_new_conn(228) | Starting new HTTP connection (1): 192.168.252.250:8082
+2023-02-18 16:19:08 | [DEBUG] | (connectionpool.py).|_make_request(456) | http://192.168.252.250:8082 "GET /UNF_test/hs/test_s/V1/test_1?number=unf_teleport HTTP/1.1" 500 167
+2023-02-18 16:19:08 | [ERROR] | (request.py).|shopForNumber(74) | 500 Server Error: Internal server error for url: http://192.168.252.250:8082/UNF_test/hs/test_s/V1/test_1?number=unf_teleport
+2023-02-18 16:19:08 | [DEBUG] | (connectionpool.py).|_new_conn(228) | Starting new HTTP connection (1): 192.168.252.250:8082
+2023-02-18 16:19:10 | [DEBUG] | (connectionpool.py).|_make_request(456) | http://192.168.252.250:8082 "GET /UNF_test/hs/test_s/V1/test_1?number=test HTTP/1.1" 200 392548
+2023-02-18 16:19:11 | [INFO] | (db.py).|__init__(51) | Connect DB
+2023-02-18 16:19:11 | [INFO] | (db.py).|__init__(54) | Start create DB
+2023-02-18 16:19:11 | [INFO] | (db.py).|__init__(66) | Connect to MySql DB
+2023-02-18 16:19:11 | [DEBUG] | (db.py).|uploadData(143) | Function call - recursive_items(c_count)
+2023-02-18 16:19:11 | [INFO] | (db.py).|recursive_items(160) | Start add DB from 1C
+2023-02-18 16:19:11 | [INFO] | (db.py).|recursive_items(188) | workshift from UNF - [{'shiftnum': 127, 'cashcode': 'test'}, {'shiftnum': 56, 'cashcode': 'test2'}]
+2023-02-18 16:19:11 | [INFO] | (db.py).|recursive_items(189) | End add DB from UNF
+2023-02-18 16:19:11 | [INFO] | (db.py).|recursive_items(190) | added - 1044 records
+2023-02-18 16:19:11 | [DEBUG] | (db.py).|uploadData(145) | Function call - calculating_the_amount()
+2023-02-18 16:19:11 | [INFO] | (db.py).|calculating_the_amount(201) | Summ analog calcalating
+2023-02-18 16:19:11 | [DEBUG] | (db.py).|uploadData(147) | Function call - delete_analog()
+2023-02-18 16:19:11 | [INFO] | (db.py).|delete_analog(210) | Delete analog
+2023-02-18 16:19:11 | [DEBUG] | (db.py).|uploadData(149) | Function call - delete_null_parent()
+2023-02-18 16:19:11 | [INFO] | (db.py).|delete_null_parent(220) | Delete 0 parent count
+2023-02-18 16:19:11 | [DEBUG] | (db.py).|uploadData(151) | Function call - querySales()
+2023-02-18 16:19:11 | [INFO] | (db.py).|querySales(110) | cashcode - test
+2023-02-18 16:19:11 | [INFO] | (db.py).|querySales(111) | shiftnum - 127
+2023-02-18 16:19:11 | [INFO] | (db.py).|querySales(120) | rows - ()
+2023-02-18 16:19:11 | [INFO] | (db.py).|querySales(110) | cashcode - test2
+2023-02-18 16:19:11 | [INFO] | (db.py).|querySales(111) | shiftnum - 56
+2023-02-18 16:19:11 | [INFO] | (db.py).|querySales(120) | rows - ()
+2023-02-18 16:19:11 | [DEBUG] | (db.py).|uploadData(153) | Function call - calculateSales()
+2023-02-18 16:19:11 | [INFO] | (db.py).|calculateSales(229) | Sales calcalating
+2023-02-18 16:19:11 | [DEBUG] | (db.py).|uploadData(155) | Function call - ctest_db(shop_Number)
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | starting thread (client mode): 0xdf83a710
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | Local version/idstring: SSH-2.0-paramiko_3.0.0
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | Remote version/idstring: SSH-2.0-OpenSSH_7.6p1 Ubuntu-4ubuntu0.7
+2023-02-18 16:19:11 | [INFO] | (transport.py).|_log(1871) | Connected (version 2.0, client OpenSSH_7.6p1)
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | === Key exchange possibilities ===
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | kex algos: curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group-exchange-sha256, diffie-hellman-group16-sha512, diffie-hellman-group18-sha512, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | server key: ssh-rsa, rsa-sha2-512, rsa-sha2-256, ecdsa-sha2-nistp256, ssh-ed25519
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | client encrypt: chacha20-poly1305@openssh.com, aes128-ctr, aes192-ctr, aes256-ctr, aes128-gcm@openssh.com, aes256-gcm@openssh.com
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | server encrypt: chacha20-poly1305@openssh.com, aes128-ctr, aes192-ctr, aes256-ctr, aes128-gcm@openssh.com, aes256-gcm@openssh.com
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | client mac: umac-64-etm@openssh.com, umac-128-etm@openssh.com, hmac-sha2-256-etm@openssh.com, hmac-sha2-512-etm@openssh.com, hmac-sha1-etm@openssh.com, umac-64@openssh.com, umac-128@openssh.com, hmac-sha2-256, hmac-sha2-512, hmac-sha1
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | server mac: umac-64-etm@openssh.com, umac-128-etm@openssh.com, hmac-sha2-256-etm@openssh.com, hmac-sha2-512-etm@openssh.com, hmac-sha1-etm@openssh.com, umac-64@openssh.com, umac-128@openssh.com, hmac-sha2-256, hmac-sha2-512, hmac-sha1
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | client compress: none, zlib@openssh.com
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | server compress: none, zlib@openssh.com
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | client lang: <none>
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | server lang: <none>
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | kex follows: False
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | === Key exchange agreements ===
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | Kex: curve25519-sha256@libssh.org
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | HostKey: ssh-ed25519
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | Cipher: aes128-ctr
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | MAC: hmac-sha2-256
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | Compression: none
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | === End of kex handshake ===
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | kex engine KexCurve25519 specified hash_algo <built-in function openssl_sha256>
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | Switch to new keys ...
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | Adding ssh-ed25519 host key for 192.168.0.239: b'19ab78ae548aa529c1647d4e9f68d5e0'
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | Got EXT_INFO: {'server-sig-algs': b'ssh-ed25519,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521'}
+2023-02-18 16:19:11 | [DEBUG] | (transport.py).|_log(1871) | userauth is OK
+2023-02-18 16:19:11 | [INFO] | (transport.py).|_log(1871) | Authentication (password) successful!
+2023-02-18 16:19:11 | [DEBUG] | (channel.py).|_log(1210) | [chan 0] Max packet in: 32768 bytes
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | Received global request "hostkeys-00@openssh.com"
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | Rejecting "hostkeys-00@openssh.com" global request from server.
+2023-02-18 16:19:12 | [DEBUG] | (channel.py).|_log(1210) | [chan 0] Max packet out: 32768 bytes
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | Secsh channel 0 opened.
+2023-02-18 16:19:12 | [DEBUG] | (channel.py).|_log(1210) | [chan 0] Sesch channel 0 request ok
+2023-02-18 16:19:12 | [INFO] | (sftp.py).|_log(169) | [chan 0] Opened sftp connection (server version 3)
+2023-02-18 16:19:12 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] open(b'/opt/OBMEN/dict/test/postest.aif', 'wb')
+2023-02-18 16:19:12 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] open(b'/opt/OBMEN/dict/test/postest.aif', 'wb') -> 00000000
+2023-02-18 16:19:12 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] close(00000000)
+2023-02-18 16:19:12 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] stat(b'/opt/OBMEN/dict/test/postest.aif')
+2023-02-18 16:19:12 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] open(b'/opt/OBMEN/dict/test/postest.aif', 'wb')
+2023-02-18 16:19:12 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] open(b'/opt/OBMEN/dict/test/postest.aif', 'wb') -> 00000000
+2023-02-18 16:19:12 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] close(00000000)
+2023-02-18 16:19:12 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] stat(b'/opt/OBMEN/dict/test/postest.aif')
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | starting thread (client mode): 0xdf83a550
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | Local version/idstring: SSH-2.0-paramiko_3.0.0
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | Remote version/idstring: SSH-2.0-OpenSSH_7.6p1 Ubuntu-4ubuntu0.7
+2023-02-18 16:19:12 | [INFO] | (transport.py).|_log(1871) | Connected (version 2.0, client OpenSSH_7.6p1)
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | === Key exchange possibilities ===
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | kex algos: curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group-exchange-sha256, diffie-hellman-group16-sha512, diffie-hellman-group18-sha512, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | server key: ssh-rsa, rsa-sha2-512, rsa-sha2-256, ecdsa-sha2-nistp256, ssh-ed25519
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | client encrypt: chacha20-poly1305@openssh.com, aes128-ctr, aes192-ctr, aes256-ctr, aes128-gcm@openssh.com, aes256-gcm@openssh.com
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | server encrypt: chacha20-poly1305@openssh.com, aes128-ctr, aes192-ctr, aes256-ctr, aes128-gcm@openssh.com, aes256-gcm@openssh.com
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | client mac: umac-64-etm@openssh.com, umac-128-etm@openssh.com, hmac-sha2-256-etm@openssh.com, hmac-sha2-512-etm@openssh.com, hmac-sha1-etm@openssh.com, umac-64@openssh.com, umac-128@openssh.com, hmac-sha2-256, hmac-sha2-512, hmac-sha1
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | server mac: umac-64-etm@openssh.com, umac-128-etm@openssh.com, hmac-sha2-256-etm@openssh.com, hmac-sha2-512-etm@openssh.com, hmac-sha1-etm@openssh.com, umac-64@openssh.com, umac-128@openssh.com, hmac-sha2-256, hmac-sha2-512, hmac-sha1
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | client compress: none, zlib@openssh.com
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | server compress: none, zlib@openssh.com
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | client lang: <none>
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | server lang: <none>
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | kex follows: False
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | === Key exchange agreements ===
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | Kex: curve25519-sha256@libssh.org
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | HostKey: ssh-ed25519
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | Cipher: aes128-ctr
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | MAC: hmac-sha2-256
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | Compression: none
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | === End of kex handshake ===
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | kex engine KexCurve25519 specified hash_algo <built-in function openssl_sha256>
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | Switch to new keys ...
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | Got EXT_INFO: {'server-sig-algs': b'ssh-ed25519,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521'}
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | Adding ssh-ed25519 host key for 192.168.0.239: b'19ab78ae548aa529c1647d4e9f68d5e0'
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | userauth is OK
+2023-02-18 16:19:12 | [INFO] | (transport.py).|_log(1871) | Authentication (password) successful!
+2023-02-18 16:19:12 | [DEBUG] | (channel.py).|_log(1210) | [chan 0] Max packet in: 32768 bytes
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | Received global request "hostkeys-00@openssh.com"
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | Rejecting "hostkeys-00@openssh.com" global request from server.
+2023-02-18 16:19:12 | [DEBUG] | (channel.py).|_log(1210) | [chan 0] Max packet out: 32768 bytes
+2023-02-18 16:19:12 | [DEBUG] | (transport.py).|_log(1871) | Secsh channel 0 opened.
+2023-02-18 16:19:12 | [DEBUG] | (channel.py).|_log(1210) | [chan 0] Sesch channel 0 request ok
+2023-02-18 16:19:12 | [INFO] | (sftp.py).|_log(169) | [chan 0] Opened sftp connection (server version 3)
+2023-02-18 16:19:12 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] open(b'/opt/OBMEN/dict/test/postest.flz', 'wb')
+2023-02-18 16:19:12 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] open(b'/opt/OBMEN/dict/test/postest.flz', 'wb') -> 00000000
+2023-02-18 16:19:12 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] close(00000000)
+2023-02-18 16:19:12 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] stat(b'/opt/OBMEN/dict/test/postest.flz')
+2023-02-18 16:19:12 | [INFO] | (main.py).|main(130) | End programs
+2023-02-18 16:19:12 | [INFO] | (main.py).|main(131) | *****************************************************************
+2023-02-18 16:20:59 | [INFO] | (main.py).|main(73) | Start programs
+2023-02-18 16:20:59 | [INFO] | (main.py).|main(74) | Current path /home/bat/Project/Python/Kruger/Global
+2023-02-18 16:20:59 | [INFO] | (dbMysql.py).|load_last_date_open(90) | Reading the file with the date of the last openeded cash shift
+2023-02-18 16:20:59 | [INFO] | (dbMysql.py).|get_last_workshift_open(63) | sent workshift_open for 1C
+2023-02-18 16:20:59 | [INFO] | (dbMysql.py).|get_last_workshift_open(64) | workshift_open - ((128, 'test', '2023-02-18 16:20:10', 'test'),)
+2023-02-18 16:20:59 | [INFO] | (main.py).|main(92) | Number of open cash shifts - 1
+2023-02-18 16:20:59 | [DEBUG] | (connectionpool.py).|_new_conn(228) | Starting new HTTP connection (1): 192.168.252.250:8082
+2023-02-18 16:21:11 | [DEBUG] | (connectionpool.py).|_make_request(456) | http://192.168.252.250:8082 "POST /UNF_test/hs/Workshift/V1/post_workshop_open HTTP/1.1" 200 0
+2023-02-18 16:21:11 | [INFO] | (dbMysql.py).|get_last_date_open(121) | Getting the date of the last opened cash shift from the database - (172,)
+2023-02-18 16:21:11 | [INFO] | (dbMysql.py).|load_last_date(82) | Reading the file with the date of the last closed cash shift
+2023-02-18 16:21:11 | [INFO] | (dbMysql.py).|get_last_workshift(28) | Date of the last closed cash shift - 171
+2023-02-18 16:21:11 | [INFO] | (dbMysql.py).|get_last_workshift(35) | Getting data on the last closed cash shifts
+2023-02-18 16:21:11 | [INFO] | (dbMysql.py).|get_last_workshift(39) | Writing a new date for closed shifts to a file
+2023-02-18 16:21:11 | [INFO] | (dbMysql.py).|get_last_workshift(44) | sent workshift for 1C
+2023-02-18 16:21:11 | [INFO] | (dbMysql.py).|get_last_workshift(45) | workshift - ((128, 'test', None, 'test', '2023-02-18 16:20:10', 172, '_shop_test_56f60925', '_cash_test_e0146422', '3', 1, 1, '321.0000', '321.0000', '321.0000', '2023-02-18 16:19:58', '321.00', '0.00', '0.00', '321.00', '0.00', '0.00', '0.00', '0.00', 1, 0),)
+2023-02-18 16:21:11 | [INFO] | (main.py).|main(105) | Number of closed cash shifts - 1
+2023-02-18 16:21:11 | [DEBUG] | (connectionpool.py).|_new_conn(228) | Starting new HTTP connection (1): 192.168.252.250:8082
+2023-02-18 16:21:12 | [DEBUG] | (connectionpool.py).|_make_request(456) | http://192.168.252.250:8082 "POST /UNF_test/hs/Workshift/V1/post_workshop HTTP/1.1" 500 161
+2023-02-18 16:21:12 | [WARNING] | (main.py).|main(114) | status_code - 500
+2023-02-18 16:21:12 | [INFO] | (dbMysql.py).|close_db_connection(131) | DB is closed!!!
+2023-02-18 16:21:12 | [DEBUG] | (connectionpool.py).|_new_conn(228) | Starting new HTTP connection (1): 192.168.252.250:8082
+2023-02-18 16:21:12 | [DEBUG] | (connectionpool.py).|_make_request(456) | http://192.168.252.250:8082 "GET /UNF_test/hs/GetChangeShop/V1/GetShop HTTP/1.1" 200 78
+2023-02-18 16:21:12 | [DEBUG] | (connectionpool.py).|_new_conn(228) | Starting new HTTP connection (1): 192.168.252.250:8082
+2023-02-18 16:21:12 | [DEBUG] | (connectionpool.py).|_make_request(456) | http://192.168.252.250:8082 "GET /UNF_test/hs/test_s/V1/test_1?number=unf_teleport HTTP/1.1" 500 167
+2023-02-18 16:21:12 | [ERROR] | (request.py).|shopForNumber(74) | 500 Server Error: Internal server error for url: http://192.168.252.250:8082/UNF_test/hs/test_s/V1/test_1?number=unf_teleport
+2023-02-18 16:21:12 | [DEBUG] | (connectionpool.py).|_new_conn(228) | Starting new HTTP connection (1): 192.168.252.250:8082
+2023-02-18 16:21:13 | [DEBUG] | (connectionpool.py).|_make_request(456) | http://192.168.252.250:8082 "GET /UNF_test/hs/test_s/V1/test_1?number=test HTTP/1.1" 200 392548
+2023-02-18 16:21:15 | [INFO] | (db.py).|__init__(51) | Connect DB
+2023-02-18 16:21:15 | [INFO] | (db.py).|__init__(54) | Start create DB
+2023-02-18 16:21:15 | [INFO] | (db.py).|__init__(66) | Connect to MySql DB
+2023-02-18 16:21:15 | [DEBUG] | (db.py).|uploadData(143) | Function call - recursive_items(c_count)
+2023-02-18 16:21:15 | [INFO] | (db.py).|recursive_items(160) | Start add DB from 1C
+2023-02-18 16:21:15 | [INFO] | (db.py).|recursive_items(188) | workshift from UNF - [{'shiftnum': 127, 'cashcode': 'test'}, {'shiftnum': 56, 'cashcode': 'test2'}]
+2023-02-18 16:21:15 | [INFO] | (db.py).|recursive_items(189) | End add DB from UNF
+2023-02-18 16:21:15 | [INFO] | (db.py).|recursive_items(190) | added - 1044 records
+2023-02-18 16:21:15 | [DEBUG] | (db.py).|uploadData(145) | Function call - calculating_the_amount()
+2023-02-18 16:21:15 | [INFO] | (db.py).|calculating_the_amount(201) | Summ analog calcalating
+2023-02-18 16:21:15 | [DEBUG] | (db.py).|uploadData(147) | Function call - delete_analog()
+2023-02-18 16:21:15 | [INFO] | (db.py).|delete_analog(210) | Delete analog
+2023-02-18 16:21:15 | [DEBUG] | (db.py).|uploadData(149) | Function call - delete_null_parent()
+2023-02-18 16:21:15 | [INFO] | (db.py).|delete_null_parent(220) | Delete 0 parent count
+2023-02-18 16:21:15 | [DEBUG] | (db.py).|uploadData(151) | Function call - querySales()
+2023-02-18 16:21:15 | [INFO] | (db.py).|querySales(110) | cashcode - test
+2023-02-18 16:21:15 | [INFO] | (db.py).|querySales(111) | shiftnum - 127
+2023-02-18 16:21:15 | [INFO] | (db.py).|querySales(120) | rows - (('ЦБ-00003233', 50, '3.000'),)
+2023-02-18 16:21:15 | [INFO] | (db.py).|querySales(110) | cashcode - test2
+2023-02-18 16:21:15 | [INFO] | (db.py).|querySales(111) | shiftnum - 56
+2023-02-18 16:21:15 | [INFO] | (db.py).|querySales(120) | rows - ()
+2023-02-18 16:21:15 | [DEBUG] | (db.py).|uploadData(153) | Function call - calculateSales()
+2023-02-18 16:21:15 | [INFO] | (db.py).|calculateSales(229) | Sales calcalating
+2023-02-18 16:21:15 | [DEBUG] | (db.py).|uploadData(155) | Function call - ctest_db(shop_Number)
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | starting thread (client mode): 0x690b9150
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | Local version/idstring: SSH-2.0-paramiko_3.0.0
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | Remote version/idstring: SSH-2.0-OpenSSH_7.6p1 Ubuntu-4ubuntu0.7
+2023-02-18 16:21:15 | [INFO] | (transport.py).|_log(1871) | Connected (version 2.0, client OpenSSH_7.6p1)
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | === Key exchange possibilities ===
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | kex algos: curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group-exchange-sha256, diffie-hellman-group16-sha512, diffie-hellman-group18-sha512, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | server key: ssh-rsa, rsa-sha2-512, rsa-sha2-256, ecdsa-sha2-nistp256, ssh-ed25519
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | client encrypt: chacha20-poly1305@openssh.com, aes128-ctr, aes192-ctr, aes256-ctr, aes128-gcm@openssh.com, aes256-gcm@openssh.com
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | server encrypt: chacha20-poly1305@openssh.com, aes128-ctr, aes192-ctr, aes256-ctr, aes128-gcm@openssh.com, aes256-gcm@openssh.com
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | client mac: umac-64-etm@openssh.com, umac-128-etm@openssh.com, hmac-sha2-256-etm@openssh.com, hmac-sha2-512-etm@openssh.com, hmac-sha1-etm@openssh.com, umac-64@openssh.com, umac-128@openssh.com, hmac-sha2-256, hmac-sha2-512, hmac-sha1
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | server mac: umac-64-etm@openssh.com, umac-128-etm@openssh.com, hmac-sha2-256-etm@openssh.com, hmac-sha2-512-etm@openssh.com, hmac-sha1-etm@openssh.com, umac-64@openssh.com, umac-128@openssh.com, hmac-sha2-256, hmac-sha2-512, hmac-sha1
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | client compress: none, zlib@openssh.com
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | server compress: none, zlib@openssh.com
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | client lang: <none>
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | server lang: <none>
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | kex follows: False
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | === Key exchange agreements ===
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | Kex: curve25519-sha256@libssh.org
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | HostKey: ssh-ed25519
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | Cipher: aes128-ctr
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | MAC: hmac-sha2-256
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | Compression: none
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | === End of kex handshake ===
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | kex engine KexCurve25519 specified hash_algo <built-in function openssl_sha256>
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | Switch to new keys ...
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | Got EXT_INFO: {'server-sig-algs': b'ssh-ed25519,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521'}
+2023-02-18 16:21:15 | [DEBUG] | (transport.py).|_log(1871) | Adding ssh-ed25519 host key for 192.168.0.239: b'19ab78ae548aa529c1647d4e9f68d5e0'
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | userauth is OK
+2023-02-18 16:21:16 | [INFO] | (transport.py).|_log(1871) | Authentication (password) successful!
+2023-02-18 16:21:16 | [DEBUG] | (channel.py).|_log(1210) | [chan 0] Max packet in: 32768 bytes
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | Received global request "hostkeys-00@openssh.com"
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | Rejecting "hostkeys-00@openssh.com" global request from server.
+2023-02-18 16:21:16 | [DEBUG] | (channel.py).|_log(1210) | [chan 0] Max packet out: 32768 bytes
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | Secsh channel 0 opened.
+2023-02-18 16:21:16 | [DEBUG] | (channel.py).|_log(1210) | [chan 0] Sesch channel 0 request ok
+2023-02-18 16:21:16 | [INFO] | (sftp.py).|_log(169) | [chan 0] Opened sftp connection (server version 3)
+2023-02-18 16:21:16 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] open(b'/opt/OBMEN/dict/test/postest.aif', 'wb')
+2023-02-18 16:21:16 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] open(b'/opt/OBMEN/dict/test/postest.aif', 'wb') -> 00000000
+2023-02-18 16:21:16 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] close(00000000)
+2023-02-18 16:21:16 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] stat(b'/opt/OBMEN/dict/test/postest.aif')
+2023-02-18 16:21:16 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] open(b'/opt/OBMEN/dict/test/postest.aif', 'wb')
+2023-02-18 16:21:16 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] open(b'/opt/OBMEN/dict/test/postest.aif', 'wb') -> 00000000
+2023-02-18 16:21:16 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] close(00000000)
+2023-02-18 16:21:16 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] stat(b'/opt/OBMEN/dict/test/postest.aif')
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | starting thread (client mode): 0x690b9050
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | Local version/idstring: SSH-2.0-paramiko_3.0.0
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | Remote version/idstring: SSH-2.0-OpenSSH_7.6p1 Ubuntu-4ubuntu0.7
+2023-02-18 16:21:16 | [INFO] | (transport.py).|_log(1871) | Connected (version 2.0, client OpenSSH_7.6p1)
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | === Key exchange possibilities ===
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | kex algos: curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group-exchange-sha256, diffie-hellman-group16-sha512, diffie-hellman-group18-sha512, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | server key: ssh-rsa, rsa-sha2-512, rsa-sha2-256, ecdsa-sha2-nistp256, ssh-ed25519
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | client encrypt: chacha20-poly1305@openssh.com, aes128-ctr, aes192-ctr, aes256-ctr, aes128-gcm@openssh.com, aes256-gcm@openssh.com
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | server encrypt: chacha20-poly1305@openssh.com, aes128-ctr, aes192-ctr, aes256-ctr, aes128-gcm@openssh.com, aes256-gcm@openssh.com
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | client mac: umac-64-etm@openssh.com, umac-128-etm@openssh.com, hmac-sha2-256-etm@openssh.com, hmac-sha2-512-etm@openssh.com, hmac-sha1-etm@openssh.com, umac-64@openssh.com, umac-128@openssh.com, hmac-sha2-256, hmac-sha2-512, hmac-sha1
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | server mac: umac-64-etm@openssh.com, umac-128-etm@openssh.com, hmac-sha2-256-etm@openssh.com, hmac-sha2-512-etm@openssh.com, hmac-sha1-etm@openssh.com, umac-64@openssh.com, umac-128@openssh.com, hmac-sha2-256, hmac-sha2-512, hmac-sha1
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | client compress: none, zlib@openssh.com
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | server compress: none, zlib@openssh.com
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | client lang: <none>
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | server lang: <none>
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | kex follows: False
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | === Key exchange agreements ===
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | Kex: curve25519-sha256@libssh.org
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | HostKey: ssh-ed25519
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | Cipher: aes128-ctr
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | MAC: hmac-sha2-256
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | Compression: none
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | === End of kex handshake ===
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | kex engine KexCurve25519 specified hash_algo <built-in function openssl_sha256>
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | Switch to new keys ...
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | Adding ssh-ed25519 host key for 192.168.0.239: b'19ab78ae548aa529c1647d4e9f68d5e0'
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | Got EXT_INFO: {'server-sig-algs': b'ssh-ed25519,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521'}
+2023-02-18 16:21:16 | [DEBUG] | (transport.py).|_log(1871) | userauth is OK
+2023-02-18 16:21:16 | [INFO] | (transport.py).|_log(1871) | Authentication (password) successful!
+2023-02-18 16:21:16 | [DEBUG] | (channel.py).|_log(1210) | [chan 0] Max packet in: 32768 bytes
+2023-02-18 16:21:17 | [DEBUG] | (transport.py).|_log(1871) | Received global request "hostkeys-00@openssh.com"
+2023-02-18 16:21:17 | [DEBUG] | (transport.py).|_log(1871) | Rejecting "hostkeys-00@openssh.com" global request from server.
+2023-02-18 16:21:17 | [DEBUG] | (channel.py).|_log(1210) | [chan 0] Max packet out: 32768 bytes
+2023-02-18 16:21:17 | [DEBUG] | (transport.py).|_log(1871) | Secsh channel 0 opened.
+2023-02-18 16:21:17 | [DEBUG] | (channel.py).|_log(1210) | [chan 0] Sesch channel 0 request ok
+2023-02-18 16:21:17 | [INFO] | (sftp.py).|_log(169) | [chan 0] Opened sftp connection (server version 3)
+2023-02-18 16:21:17 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] open(b'/opt/OBMEN/dict/test/postest.flz', 'wb')
+2023-02-18 16:21:17 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] open(b'/opt/OBMEN/dict/test/postest.flz', 'wb') -> 00000000
+2023-02-18 16:21:17 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] close(00000000)
+2023-02-18 16:21:17 | [DEBUG] | (sftp.py).|_log(169) | [chan 0] stat(b'/opt/OBMEN/dict/test/postest.flz')
+2023-02-18 16:21:17 | [INFO] | (main.py).|main(130) | End programs
+2023-02-18 16:21:17 | [INFO] | (main.py).|main(131) | *****************************************************************

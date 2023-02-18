@@ -12,7 +12,7 @@ def get_logger(name):
     pathLOG = "/home/bat/Project/Python/Kruger/Global/log/ws_log.log"
     
     #pathLOG = Path("./log", "py_log.log") 
-    print(pathLOG)
+    #print(pathLOG)
     logging.basicConfig( handlers=[RotatingFileHandler(
         
         #'/home/administrator/Workshift_load/log/ws_log.log', maxBytes=2000000, backupCount=10)],level=logging.DEBUG, 
