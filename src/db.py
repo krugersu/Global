@@ -39,7 +39,7 @@ class workDb:
     def __init__(self,rc, c_count = None):
         
         self.pathDB = Path("data", "myDB.sqlite")
-        print(Path("data", "myDB.sqlite"))
+        #print(Path("data", "myDB.sqlite"))
         if sys.platform.startswith("linux"):  # could be "linux", "linux2", "linux3", ...
                 pysqlite3.paramstyle = 'named'
                 self._all_db = pysqlite3.connect(self.pathDB)
@@ -182,7 +182,7 @@ class workDb:
         # Текущие закрытые кассовые смены по данному обрабатываемому магазину 
         self.sale_dict = dictionary.wsunf
        # pprint(dictionary.wsunf)
-        pprint(self.sale_dict)
+        #pprint(self.sale_dict)
         
         
         logging.info('workshift from UNF - ' + str(dictionary.wsunf))    
@@ -193,10 +193,10 @@ class workDb:
     def calculating_the_amount(self):
         """Запускает SQL скрипт, который переносит количество с аналагов пива на головную номенклатуру"""        
         pathScript = Path("data", "upd.sql") 
-        pprint(Path("data", "upd.sql"))
+        #pprint(Path("data", "upd.sql"))
         with open(pathScript, 'r') as sql_file:
             sql_script = sql_file.read()
-            print(sql_script)
+            #print(sql_script)
         self._cursor.executescript(sql_script)
         logging.info('Summ analog calcalating')  
         
