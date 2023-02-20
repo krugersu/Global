@@ -19,7 +19,7 @@ import request
 import settings
 import logging.config
 
-
+# Test
 #logger = app_logger.get_logger(__name__)
 logging.config.dictConfig(settings.LOGGING_CONFIG)
 logger = logging.getLogger('my_logger')
