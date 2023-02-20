@@ -4,6 +4,14 @@ import win32event
 import servicemanager
 import socket
 
+import settings
+import logging.config
+
+
+#logger = app_logger.get_logger(__name__)
+logging.config.dictConfig(settings.LOGGING_CONFIG)
+logger = logging.getLogger('my_logger')
+
 class AppServerSvc (win32serviceutil.ServiceFramework):
     _svc_name_ = "TestService"
     _svc_display_name_ = "Test Service"

@@ -18,8 +18,10 @@ import pymysql
 #import m_config
 import codecs
 
-import app_logger
+#import app_logger
 
+import settings
+import logging.config
 
 if sys.platform.startswith("linux"):  # could be "linux", "linux2", "linux3", ...
     import pysqlite3
@@ -29,7 +31,10 @@ elif sys.platform == "win32":
    import sqlite3
 
 
-logger = app_logger.get_logger(__name__)
+#logger = app_logger.get_logger(__name__)
+logging.config.dictConfig(settings.LOGGING_CONFIG)
+logger = logging.getLogger('my_logger')
+
 
 
 
@@ -38,7 +43,7 @@ logger = app_logger.get_logger(__name__)
 class workDb:
     def __init__(self,rc, c_count = None):
         
-        self.pathDB = Path("data", "myDB.sqlite")
+        self.pathDB = Path("/home/administrator/Global/data", "myDB.sqlite")
         #print(Path("data", "myDB.sqlite"))
         if sys.platform.startswith("linux"):  # could be "linux", "linux2", "linux3", ...
                 pysqlite3.paramstyle = 'named'
@@ -48,11 +53,11 @@ class workDb:
         elif sys.platform == "win32":
             sqlite3.paramstyle = 'named'
             self._all_db = sqlite3.connect(self.pathDB)
-        logging.info('Connect DB')    
+        logger.info('Connect DB')    
         self.sale_dict = []
         
-        logging.info('Start create DB')    
-        self.pathScript = Path("data", "createDB.sql") 
+        logger.info('Start create DB')    
+        self.pathScript = Path("/home/administrator/Global/data", "createDB.sql") 
         self._cursor = self._all_db.cursor()
         self.baseTableName = 'invent'
         
@@ -63,7 +68,7 @@ class workDb:
             user=rc._sections.artix.user,
             passwd=rc._sections.artix.passwd)
         self._mycursor = self.mydb.cursor() #cursor created
-        logging.info('Connect to MySql DB')    
+        logger.info('Connect to MySql DB')    
         
     def __enter__(self):
         
@@ -107,8 +112,8 @@ class workDb:
             #for k, v in value.items():
                 print(value['cashcode'])
                 print(value['shiftnum'])
-                logging.info('cashcode - ' + str(value['cashcode']))    
-                logging.info('shiftnum - ' + str(value['shiftnum']))    
+                logger.info('cashcode - ' + str(value['cashcode']))    
+                logger.info('shiftnum - ' + str(value['shiftnum']))    
                 # self._mycursor.execute(diff_data.qrGetNumWorkshift,(value['shiftnum']),)
                 # num_workshift = self._mycursor.fetchone() 
                 #print('num_workshift '+ str(num_workshift))
@@ -117,7 +122,7 @@ class workDb:
 
                 x = []
                 rows = self._mycursor.fetchall()
-                logging.info('rows - ' + str(rows))    
+                logger.info('rows - ' + str(rows))    
         #showing the rows
                 for row in rows:
                     x.append(row)
@@ -140,24 +145,24 @@ class workDb:
     def uploadData(self,c_count, shop_Number):
                 
         self.createDB()
-        logging.debug('Function call - recursive_items(c_count)' )
+        logger.debug('Function call - recursive_items(c_count)' )
         self.recursive_items(c_count)
-        logging.debug('Function call - calculating_the_amount()' )
+        logger.debug('Function call - calculating_the_amount()' )
         self.calculating_the_amount()
-        logging.debug('Function call - delete_analog()' )
+        logger.debug('Function call - delete_analog()' )
         self.delete_analog()
-        logging.debug('Function call - delete_null_parent()' )
+        logger.debug('Function call - delete_null_parent()' )
         self.delete_null_parent()
-        logging.debug('Function call - querySales()' )
+        logger.debug('Function call - querySales()' )
         self.querySales()
-        logging.debug('Function call - calculateSales()' )
+        logger.debug('Function call - calculateSales()' )
         self.calculateSales()
-        logging.debug('Function call - ctest_db(shop_Number)' )
+        logger.debug('Function call - ctest_db(shop_Number)' )
         self.test_db(shop_Number)
         
     def recursive_items(self,dictionary):
         # Берем данные из УНФ т записываем в соответствующие таблицы БД для последующей обработки
-        logging.info('Start add DB from 1C')
+        logger.info('Start add DB from 1C')
         count = 0
         #for item in dictionary.invent:
         #    pprint(item)
@@ -185,48 +190,48 @@ class workDb:
         #pprint(self.sale_dict)
         
         
-        logging.info('workshift from UNF - ' + str(dictionary.wsunf))    
-        logging.info('End add DB from UNF')    
-        logging.info('added - ' + str(count) + ' records')    
+        logger.info('workshift from UNF - ' + str(dictionary.wsunf))    
+        logger.info('End add DB from UNF')    
+        logger.info('added - ' + str(count) + ' records')    
 
 
     def calculating_the_amount(self):
         """Запускает SQL скрипт, который переносит количество с аналагов пива на головную номенклатуру"""        
-        pathScript = Path("data", "upd.sql") 
+        pathScript = Path("/home/administrator/Global/data", "upd.sql") 
         #pprint(Path("data", "upd.sql"))
         with open(pathScript, 'r') as sql_file:
             sql_script = sql_file.read()
             #print(sql_script)
         self._cursor.executescript(sql_script)
-        logging.info('Summ analog calcalating')  
+        logger.info('Summ analog calcalating')  
         
     def delete_analog(self):
         """Запускает SQL скрипт, который удаляет из базы аналоги после перенесения количества на головную"""        
-        pathScript = Path("data", "del_a.sql") 
+        pathScript = Path("/home/administrator/Global/data", "del_a.sql") 
         with open(pathScript, 'r') as sql_file:
             sql_script = sql_file.read()
         self._cursor.executescript(sql_script)
         self._all_db.commit()
-        logging.info('Delete analog')  
+        logger.info('Delete analog')  
         
     def delete_null_parent(self):
         """Запускает SQL скрипт, который удаляет из базы головную номенклатуру с нулевым количеством, т.е. которая пришла из 1С, но
             на неё не было распределения"""        
-        pathScript = Path("data", "del_null_count_parent.sql") 
+        pathScript = Path("/home/administrator/Global/data", "del_null_count_parent.sql") 
         with open(pathScript, 'r') as sql_file:
             sql_script = sql_file.read()
         self._cursor.executescript(sql_script)
         self._all_db.commit()
-        logging.info('Delete 0 parent count')      
+        logger.info('Delete 0 parent count')      
 
         
     def calculateSales(self):
         """Запускает SQL скрипт, который отнимает проданное от пришедшего товара"""        
-        pathScript = Path("data", "updateprod.sql") 
+        pathScript = Path("/home/administrator/Global/data", "updateprod.sql") 
         with open(pathScript, 'r') as sql_file:
             sql_script = sql_file.read()
         self._cursor.executescript(sql_script)
-        logging.info('Sales calcalating')              
+        logger.info('Sales calcalating')              
         
         
     def test_db(self,shop_Number):
@@ -250,8 +255,8 @@ class workDb:
         curFileName = 'pos' + str(shop_Number) + '.aif'
         curFlagName = 'pos' + str(shop_Number) + '.flz'
         
-        pathAif = Path("upload", curFileName) 
-        pathFlz = Path("upload", curFlagName) 
+        pathAif = Path("/home/administrator/Global/upload/", curFileName) 
+        pathFlz = Path("/home/administrator/Global/upload/", curFlagName) 
         
         outfileFlz = open(pathFlz, 'w',encoding='utf-8')  
         outfileFlz.close
@@ -410,7 +415,7 @@ class workDb:
     def close_db_connection(self):
         self._mycursor.close()
         self.mydb.close()
-        logging.info('DB is closed!!!')    
+        logger.info('DB is closed!!!')    
         # def recursive_items(self,dictionary):
             
         # logging.info('Start add DB from 1C')

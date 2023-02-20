@@ -4,6 +4,14 @@ import time
 import shutil
 from pathlib import Path
 
+import settings
+import logging.config
+
+
+#logger = app_logger.get_logger(__name__)
+logging.config.dictConfig(settings.LOGGING_CONFIG)
+logger = logging.getLogger('my_logger')
+
 host = '192.168.0.239'
 user = 'administrator'
 secret = 'adm@#747911ART'
@@ -26,7 +34,9 @@ def sendFile(fileName,shopNumber,typeFile):
     ftp = ssh.open_sftp()
     if typeFile:
         ftp.put(fileName, '/opt/OBMEN/dict/'+ shopNumber +'/' + 'pos'+ shopNumber+'.aif')
-        ftp.put('./upload/'+fileName.name, '/opt/OBMEN/dict/'+ shopNumber +'/' + 'pos'+ shopNumber+'.aif')
+        #ftp.put('./upload/'+fileName.name, '/opt/OBMEN/dict/'+ shopNumber +'/' + 'pos'+ shopNumber+'.aif')
+        ftp.put('/home/administrator/Global/upload/'+fileName.name, '/opt/OBMEN/dict/'+ shopNumber +'/' + 'pos'+ shopNumber+'.aif')
+        
       #  shutil.copyfile('/home/bat/Project/Python/Kruger/Artix_gen/upload/postest.aif', '/mnt/share/test/postest.aif')
         # source = Path('/home/bat/Project/Python/Kruger/Artix_gen/upload/test.aif')
         # destination = Path('/mnt/share/test/postest.aif')

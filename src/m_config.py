@@ -4,6 +4,14 @@ import logging
 import os
 import main
 
+import settings
+import logging.config
+
+
+#logger = app_logger.get_logger(__name__)
+logging.config.dictConfig(settings.LOGGING_CONFIG)
+logger = logging.getLogger('my_logger')
+
 
 # AttrDict - это класс, производный от dict который позволяет получить доступ как через ключи словаря,
 # так и через доступ к атрибутам: это означает a.x is a['x']
@@ -15,8 +23,8 @@ class AttrDict(dict):
 
 class m_Config:
     
-    pathConfFile = '/config.ini'
-    devpathConfFile = './config/config.ini'
+    pathConfFile = '/home/administrator/Global/config.ini'
+    devpathConfFile = '/home/administrator/Global/config/config.ini'
 
     def __init__(self):  
         pass
@@ -28,7 +36,7 @@ class m_Config:
         if os.path.exists(self.devpathConfFile):
             conf.read(self.devpathConfFile,encoding="utf-8")
         else:
-            logging.error('File .ini not exist')
+            logger.error('File .ini not exist')
             return None
         return conf
     

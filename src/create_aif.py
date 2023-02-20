@@ -1,6 +1,14 @@
 import os
 import json
 
+import settings
+import logging.config
+
+
+#logger = app_logger.get_logger(__name__)
+logging.config.dictConfig(settings.LOGGING_CONFIG)
+logger = logging.getLogger('my_logger')
+
 header = "### data begin ###"
 footer = "### data end ###"
 separator = "---"

@@ -5,9 +5,13 @@ import os
 from os.path import *
 from pathlib import Path
 import app_logger
+import settings
+import logging.config
 
 
-logger = app_logger.get_logger(__name__)
+#logger = app_logger.get_logger(__name__)
+logging.config.dictConfig(settings.LOGGING_CONFIG)
+logger = logging.getLogger('my_logger')
 
 #Функция ищет все файлы с расширением ".flg" во всех подкаталогах каталога 
 

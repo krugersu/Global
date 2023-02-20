@@ -1,29 +1,5 @@
-#/usr/bin/env python3.11
-"""Example Python program with Sphinx style comments.
-Description
------------
-Example Python program with Sphinx style (reStructuredText) comments.
-Libraries/Modules
------------------
-- time standard library (https://docs.python.org/3/library/time.html)
-    - Access to sleep function.
-- sensors module (local)
-    - Access to Sensor and TempSensor classes.
-Notes
------
-- Comments are Sphinx (reStructuredText) compatible.
+#!/usr/bin/python3.10
 
-----
-- None.
-Author(s)
----------
-- Created by John Woolsey on 05/27/2020.
-- Modified by John Woolsey on 07/02/2020.
-Copyright (c) 2020 Woolsey Workshop.  All rights reserved.
-Members
--------
-"""
-# Imports
 import os
 import sys
 import configparser
@@ -40,15 +16,19 @@ import workDB
 import tlgrm
 import create_aif
 import request
+import settings
+import logging.config
 
-#: Global Constants
-logger = app_logger.get_logger(__name__)
+
+#logger = app_logger.get_logger(__name__)
+logging.config.dictConfig(settings.LOGGING_CONFIG)
+logger = logging.getLogger('my_logger')
 cPath = Path(os.getcwd())
 cPath.joinpath('Global', 'src')
-# fileinit = '/home/administrator/Global/src/first.dat'
-# sys.path.insert(1,'/home/administrator/Global/src/')
-fileinit = '/home/bat/Project/Python/Kruger/Global/src/first.dat'
-sys.path.insert(1,'/home/bat/Project/Python/Kruger/Global/src/')
+fileinit = '/home/administrator/Global/src/first.dat'
+sys.path.insert(1,'/home/administrator/Global/src/')
+#fileinit = '/home/bat/Project/Python/Kruger/Global/src/first.dat'
+#sys.path.insert(1,'/home/bat/Project/Python/Kruger/Global/src/')
 """Для логирования событий"""
 
 
@@ -64,6 +44,7 @@ def main():
    """ Main program entry. """
    # Если это первый запуск системы
    if not os.path.exists(fileinit):
+      logger.info("First start programs")
       with open(fileinit, 'w', encoding='utf-8') as outfile:
             outfile.write('')    
             init_pr()
@@ -82,7 +63,7 @@ def main():
    
    
    c_shop = []
-   # Apoc по магазинам с изменения
+   # Запpoc по магазинам с изменения
    tData = dbMysql.workDb(rc)
    rec_con = request.req1C(rc)
    mCount = request.req1C(rc)
@@ -118,6 +99,7 @@ def main():
    
    # Анализ в каких магазинах изменения
    c_shop = mCount.getQueryShop()
+   logger.info("Change in stores - " + str(c_shop))
    #print(c_shop)
    # Обработка данных по магазинам
    for curShop in c_shop:
@@ -134,14 +116,14 @@ def main():
 
 def init_pr():
 
-  # filename = '/home/administrator/Workshift_load/src/last_date.txt'
-   filename = '/home/bat/Project/Python/Kruger/Global/src/last_date.txt'
+   filename = '/home/administrator/Global/src/last_date.txt'
+   #filename = '/home/bat/Project/Python/Kruger/Global/src/last_date.txt'
    if not os.path.exists(filename):
       with open(filename, 'w', encoding='utf-8') as outfile:
             outfile.write('1')#'2023-01-01 00:00:00'
             
-   #filename = '/home/administrator/Workshift_load/src/last_date_open.txt'
-   filename = '/home/bat/Project/Python/Kruger/Global/src/last_date_open.txt'
+   filename = '/home/administrator/Global/src/last_date_open.txt'
+   #filename = '/home/bat/Project/Python/Kruger/Global/src/last_date_open.txt'
    if not os.path.exists(filename):
       with open(filename, 'w', encoding='utf-8') as outfile:
             outfile.write('1')  # '2023-01-01 00:00:00'
@@ -174,3 +156,5 @@ if __name__ == "__main__":
 #FIXME Исправить подписку на событие согласно текстовым номерам магазинов и новому реквизиту
 ## FIX Не выгружать штрихкод
 ## FIX Разобраться с группой товаров
+
+#

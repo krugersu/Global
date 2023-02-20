@@ -9,6 +9,15 @@ from pathlib import Path
 import tortilla
 from pprint import pprint
 
+import settings
+import logging.config
+
+
+#logger = app_logger.get_logger(__name__)
+logging.config.dictConfig(settings.LOGGING_CONFIG)
+logger = logging.getLogger('my_logger')
+
+
 class req1C:
      def __init__(self, nConfig):
           self.mConfig = nConfig
@@ -29,7 +38,7 @@ class req1C:
                c_count = r.json()
                return c_count
           except Exception as e:
-               logging.exception(e, exc_info=False)
+               logger.exception(e, exc_info=False)
           return None
      
      
@@ -47,7 +56,7 @@ class req1C:
                listShop = self._getDirM(c_count)
                return listShop  # c_count
           except Exception as e:
-               logging.exception(e, exc_info=False)
+               logger.exception(e, exc_info=False)
           return None     
 
      def shopForNumber(self,c_shop):
@@ -71,7 +80,7 @@ class req1C:
               # c_count = r.json()
                return c_count
           except Exception as e:
-               logging.exception(e, exc_info=False)
+               logger.exception(e, exc_info=False)
           return None
 
 
