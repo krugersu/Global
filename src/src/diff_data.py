@@ -183,7 +183,9 @@ qrSelect_last_workshift_date = 'SELECT MAX(workshiftid) AS "MaxDate" FROM worksh
 #qrSelect_last_workshift_date_open = 'SELECT MAX(time_beg) AS "MaxDate" FROM workshift Where time_end IS NULL'
 qrSelect_last_workshift_date_open = 'SELECT MAX(workshiftid) AS "MaxDate" FROM workshift Where time_end IS NULL'
 
-qrSelect_workshift_open = 'SELECT shiftnum ,cashcode,CAST(time_beg AS char),shopcode, workshiftid  FROM workshift WHERE time_end IS NULL AND workshiftid >%s  '
+#qrSelect_workshift_open = 'SELECT shiftnum ,cashcode,CAST(time_beg AS char),shopcode, workshiftid  FROM workshift WHERE time_end IS NULL AND workshiftid >%s  '
+# Нужно проверять не только открытые смены с последней, но и закрытые, которые умпели открыть и звкрыть между запусками программы
+qrSelect_workshift_open = 'SELECT shiftnum ,cashcode,CAST(time_beg AS char),shopcode, workshiftid  FROM workshift WHERE  workshiftid >%s  '
 
 qrSelect_workshift = '''SELECT shiftnum , shopcode, CAST(time_end AS char) , cashcode, CAST(time_beg AS char), workshiftid, storeId,cashId, scode,
                         checknum1, checknum2,  CAST(sumSale AS char), CAST(sumGain AS char), CAST(sumDrawer AS char),
@@ -191,4 +193,17 @@ qrSelect_workshift = '''SELECT shiftnum , shopcode, CAST(time_end AS char) , cas
                         CAST(sumgainnoncash AS char), CAST(sumrefund AS char), CAST(sumrefundcash AS char), CAST(sumrefundnoncash AS char), countsale, countrefund
                         FROM  workshift WHERE time_end IS NOT NULL AND workshiftid >%s '''
 
+
+
+qrSelect_workshiftnew = '''SELECT shiftnum , shopcode, CAST(time_end AS char) , cashcode, CAST(time_beg AS char), workshiftid, storeId,cashId, scode,
+                        checknum1, checknum2,  CAST(sumSale AS char), CAST(sumGain AS char), CAST(sumDrawer AS char),
+                        CAST(firstchecktime AS char), CAST(sumsalecash AS char), CAST(sumsalenoncash AS char), CAST(sumsaleother AS char), CAST(sumgaincash AS char),
+                        CAST(sumgainnoncash AS char), CAST(sumrefund AS char), CAST(sumrefundcash AS char), CAST(sumrefundnoncash AS char), countsale, countrefund
+                        FROM  workshift WHERE time_end IS NOT NULL AND workshiftid  IN ({}) '''
+
+
 qrAdd_workshift_open = '''INSERT INTO wh (workshiftid) VALUES (?)'''
+
+qrGet_saveworkshift_open = ''' SELECT * FROM wh'''
+
+qrDel_workshift_close = ''' DELETE FROM wh WHERE workshiftid = ?'''
