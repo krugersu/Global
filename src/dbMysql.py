@@ -6,6 +6,7 @@ import diff_data
 import logging
 from datetime import datetime
 from pprint import pprint
+import db
 import pymysql
 
 import settings
@@ -32,19 +33,37 @@ class workDb:
                                     user=rc._sections.artix.user,
                                     passwd=rc._sections.artix.passwd)
         self._mycursor = self.mydb.cursor()  # cursor created
-
+        self.tData = db.workDb(rc)
+        
+             
     def get_last_workshift(self):
 
         l_date = self.load_last_date()
         logger.info('Date of the last closed cash shift - ' + str(l_date))
+        # ++
+        # Номера открытых смен в БД        
+        l_close_workshift = self.tData.get_close_workshift()
+        print('l_close_workshift')
+        print(l_close_workshift)
+        # -- 
         try:
-            self._mycursor.execute(diff_data.qrSelect_workshift, [l_date])
+            # ++
+            #for wh in l_close_workshift:
+            #    print(wh)
+                # Получаем в артиксе по списку из БД, смены которые были закрыты
+         self._mycursor.execute(diff_data.qrSelect_workshiftnew.format(",".join([str(i) for i in l_close_workshift])))
+                
+                #self._mycursor.execute(diff_data.qrSelect_workshiftnew, [wh],)
+            # --
+            #self._mycursor.execute(diff_data.qrSelect_workshift, [l_date])
         except Exception as e:
             logger.info('Get date from DB - ' + str(l_date))
             logger.exception(e, exc_info=True)
 
         logger.info('Getting data on the last closed cash shifts')
         l_workshift = self._mycursor.fetchall()
+        print('Смены которые были открыты, а теперь закрыты - ')
+        print(l_workshift)
         # self._mycursor.close()
         with open('data.json', 'w', encoding='utf-8') as f:
             logging.info('Writing a new date for closed shifts to a file')
@@ -54,15 +73,17 @@ class workDb:
 
         logging.info('sent workshift for 1C')
         logging.info('workshift - ' + str(l_workshift))
-
+        self.tData.del_close_workshift(l_workshift)
         return l_workshift
 
-    def get_last_workshift_open(self):
+
+    def get_last_workshift_open(self,rc):
         l_date = self.load_last_date_open()
 #        logging.info('workshift - ' + str(l_workshift))
         self._mycursor.execute(diff_data.qrSelect_workshift_open, [l_date])
         l_workshift = self._mycursor.fetchall()
-        # self._mycursor.close()
+        
+        self.tData.get_workshiftid(l_workshift)
         with open('data_open.json', 'w', encoding='utf-8') as f:
             # json_string = json.dumps(l_workshift)
             # pprint(json_string)
@@ -136,7 +157,19 @@ class workDb:
 
         return l_date[0]
 
+    # def get_workshiftid(sel,l_workshift):
+    #     # Формируем список номеров открытых кассовых смен для добавление в БД
+    #     l_wsh = []
+    #     for row in l_workshift:
+    #         print(row[4])
+    #         l_wsh.append(row[4])
+    #     return l_wsh
+        
+    # def add_open_workshift(self,l_workshift):
+    #         self._mycursor.execute(diff_data.qrAdd_workshift_open, [l_workshift])
+
     def close_db_connection(self):
         self._mycursor.close()
         self.mydb.close()
         logging.info('DB is closed!!!')
+

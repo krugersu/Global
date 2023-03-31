@@ -9,6 +9,8 @@ from pathlib import Path
 import tortilla
 from pprint import pprint
 
+from requests.auth import HTTPBasicAuth
+
 import settings
 import logging.config
 
@@ -32,7 +34,7 @@ class req1C:
           try:
                r = requests.get('http://' + self.mConfig._sections.one_C.server_ip + ':' 
                                    + self.mConfig._sections.one_C.port 
-                                   + self.mConfig._sections.one_C.lquery)
+                                   + self.mConfig._sections.one_C.lquery,  auth=('Adm', ''))
 # ?  r = requests.get('http://192.168.252.250:8082/UNF_test/hs/test_s/V1/test')
                r.encoding = 'utf-8' 
                c_count = r.json()
@@ -45,11 +47,12 @@ class req1C:
      
      
      def getQueryShop(self):
-          
+                    
           try:
+              
                r = requests.get('http://' + self.mConfig._sections.one_C.server_ip + ':' 
                                    + self.mConfig._sections.one_C.port 
-                                   + self.mConfig._sections.one_C.shopquery)
+                                   + self.mConfig._sections.one_C.shopquery,  auth=('Adm', ''))  #  ,auth=('Adm', ''))
                     
                r.encoding = 'utf-8' 
                c_count = r.json()
@@ -70,7 +73,7 @@ class req1C:
                
                n_shop = tortilla.wrap('http://' + self.mConfig._sections.one_C.server_ip + ':' 
                                    + self.mConfig._sections.one_C.port 
-                                   + self.mConfig._sections.one_C.lquery)
+                                   + self.mConfig._sections.one_C.lquery,  auth=('Adm', '')) #,  auth=('Adm', '')
                c_count = n_shop.test_s.get('V1/test_1?number=' +str(c_shop))
                
                
@@ -107,7 +110,7 @@ class req1C:
           try:
                r = requests.post('http://' + self.mConfig._sections.one_C.server_ip + ':'
                                    + self.mConfig._sections.one_C.port
-                                   + self.mConfig._sections.one_C.workshift, data=None, json = l_workshift)
+                                   + self.mConfig._sections.one_C.workshift,   auth=('Adm', ''),data=None, json = l_workshift)
           
           except Exception as e:
                logging.info('status_code - ' + str(r.status_code))
@@ -120,7 +123,7 @@ class req1C:
           try:
                r = requests.post('http://' + self.mConfig._sections.one_C.server_ip + ':'
                                    + self.mConfig._sections.one_C.port
-                                   + self.mConfig._sections.one_C.workshift_open, data=None, json = l_workshift_open)
+                                   + self.mConfig._sections.one_C.workshift_open,   auth=('Adm', ''), data=None, json = l_workshift_open)
                
           except Exception as e:
                logging.info('status_code - ' + str(r.status_code))

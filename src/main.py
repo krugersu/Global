@@ -50,7 +50,7 @@ def main():
             init_pr()
 
    
-   path = Path("config", "config.ini") 
+   #path = Path("config", "config.ini") 
    logger.info("Start programs")
    logger.info("Current path " + str(cPath))
 
@@ -69,11 +69,13 @@ def main():
    mCount = request.req1C(rc)
    
    # Список открытых смен от последнего зафиксированного времени
-   l_workshift_open = tData.get_last_workshift_open()
+   l_workshift_open = tData.get_last_workshift_open(rc)
    logger.info(u'Number of open cash shifts - ' + str(len(l_workshift_open)))
    # Если нечего отправлять, то и не отправляем
    if len(l_workshift_open) > 0:
+      
       status_code = rec_con.post_workshift_open(l_workshift_open)
+      logger.warning('l_workshift_open - ' + str(l_workshift_open ))
       # Меняем дату в файле только в случае успешного результата работы 1С
       if status_code == 200:
             tData.save_new_date_open()
@@ -84,10 +86,13 @@ def main():
    # Список закрытых смен от последнего зафиксированного времени
    l_workshift = tData.get_last_workshift()
    logger.info(u'Number of closed cash shifts - ' + str(len(l_workshift)))
+   logger.warning('l_workshift - ' + str(l_workshift ))
    # Если нечего отправлять, то и отправляем
    if len(l_workshift) > 0:
       #rec_con = m_request.req1C(rc)
+      
       status_code = rec_con.post_workshift(l_workshift)
+      
       # Меняем дату в файле только в случае успешного результата работы 1С
       if status_code == 200:
             tData.save_new_date()
@@ -97,20 +102,20 @@ def main():
    tData.close_db_connection()      
    
    
-   # Анализ в каких магазинах изменения
-   c_shop = mCount.getQueryShop()
-   logger.info("Change in stores - " + str(c_shop))
-   #print(c_shop)
-   # Обработка данных по магазинам
-   for curShop in c_shop:
-   #   print(curShop)    
-      c_count = mCount.shopForNumber(curShop)
-      if not c_count == None:  
-         tData = db.workDb(rc)
-         tData.uploadData(c_count, curShop)
+   # # Анализ в каких магазинах изменения
+   # c_shop = mCount.getQueryShop()
+   # logger.info("Change in stores - " + str(c_shop))
+   # #print(c_shop)
+   # # Обработка данных по магазинам
+   # for curShop in c_shop:
+   # #   print(curShop)    
+   #    c_count = mCount.shopForNumber(curShop)
+   #    if not c_count == None:  
+   #       tData = db.workDb(rc)
+   #       tData.uploadData(c_count, curShop)
    
-   logger.info(u'End programs')   
-   logger.info(u'*****************************************************************')   
+   # logger.info(u'End programs')   
+   # logger.info(u'*****************************************************************')   
 
   # tData.close_db_connection()  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 

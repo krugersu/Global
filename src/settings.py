@@ -21,6 +21,7 @@ LOGGING_CONFIG = {
             'backupCount': 10
 
         },
+        
     },
 
     'loggers': {

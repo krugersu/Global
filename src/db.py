@@ -410,7 +410,44 @@ class workDb:
         sendFile.sendFile(pathFlz,shop_Number,False)
         
         
+    def get_workshiftid(self,l_workshift):
+        # Формируем список номеров открытых кассовых смен для добавление в БД
+        l_wsh = []
+        for row in l_workshift:
+#            print(row[4])
+            l_wsh.append(row[4])
+        print(l_wsh)
+        self.add_open_workshift(l_wsh)
         
+    def add_open_workshift(self,l_workshift):
+        # Добавляем открытые смены в БД
+            #self._mycursor.execute(diff_data.qrAdd_workshift_open, [l_workshift])
+            for wh in l_workshift:
+                print('open - ' + str(wh))
+                self._cursor.execute(diff_data.qrAdd_workshift_open, [str(wh),])
+            self._all_db.commit()
+        
+    def get_close_workshift(self):
+        
+        saveworkshift_open = self._all_db.cursor() 
+        # Список открытых смен из БД      
+        saveworkshift_open.execute(diff_data.qrGet_saveworkshift_open)
+        saveworkshift_open = saveworkshift_open.fetchall()  
+        l_saveworkshift_open = []
+        for itm in saveworkshift_open:
+            print('for close_workshift - ' + str(itm))
+            l_saveworkshift_open.append(str(itm[0]))
+        print('Номера открытых смен из БД - ')
+        print( l_saveworkshift_open)
+        return l_saveworkshift_open
+        
+        
+    def del_close_workshift(self,l_workshift):
+        saveworkshift_del = self._all_db.cursor()       
+        for wh in l_workshift:
+            print('delete - ' + str(wh[5]))
+            saveworkshift_del.execute(diff_data.qrDel_workshift_close,[str(wh[5])])
+        self._all_db.commit()
         
     def close_db_connection(self):
         self._mycursor.close()
