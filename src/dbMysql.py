@@ -51,7 +51,9 @@ class workDb:
             #for wh in l_close_workshift:
             #    print(wh)
                 # Получаем в артиксе по списку из БД, смены которые были закрыты
-         self._mycursor.execute(diff_data.qrSelect_workshiftnew.format(",".join([str(i) for i in l_close_workshift])))
+                # TODO Проверять что значение l_close_workshift не пустое!!!!!!
+         if len(l_close_workshift) > 0:                
+             self._mycursor.execute(diff_data.qrSelect_workshiftnew.format(",".join([str(i) for i in l_close_workshift])))
                 
                 #self._mycursor.execute(diff_data.qrSelect_workshiftnew, [wh],)
             # --
