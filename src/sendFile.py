@@ -12,7 +12,7 @@ import logging.config
 logging.config.dictConfig(settings.LOGGING_CONFIG)
 logger = logging.getLogger('my_logger')
 
-host = '192.168.0.239'
+host = '10.0.0.239'
 user = 'administrator'
 secret = 'adm@#747911ART'
 port = 22

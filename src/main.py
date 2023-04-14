@@ -103,21 +103,22 @@ def main():
    
    
    # # Анализ в каких магазинах изменения
-   # c_shop = mCount.getQueryShop()
-   # logger.info("Change in stores - " + str(c_shop))
-   # #print(c_shop)
-   # # Обработка данных по магазинам
-   # for curShop in c_shop:
-   # #   print(curShop)    
-   #    c_count = mCount.shopForNumber(curShop)
-   #    if not c_count == None:  
-   #       tData = db.workDb(rc)
-   #       tData.uploadData(c_count, curShop)
+   c_shop = mCount.getQueryShop()
+   logger.info("Change in stores - " + str(c_shop))
+   #print(c_shop)
+   # Обработка данных по магазинам
+   for curShop in c_shop:
+   #   print(curShop)    
+      c_count = mCount.shopForNumber(curShop)
+      if not c_count == None:  
+         tData = db.workDb(rc)
+         tData.uploadData(c_count, curShop)
+   #      tData.close_db_connection()  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    
-   # logger.info(u'End programs')   
-   # logger.info(u'*****************************************************************')   
+   logger.info(u'End programs')   
+   logger.info(u'*****************************************************************')   
 
-  # tData.close_db_connection()  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   
 
 def init_pr():
 

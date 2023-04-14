@@ -409,7 +409,7 @@ class workDb:
         sendFile.sendFile(pathAif,shop_Number,True)
         sendFile.sendFile(pathFlz,shop_Number,False)
         
-        
+    #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    
     def get_workshiftid(self,l_workshift):
         # Формируем список номеров открытых кассовых смен для добавление в БД
         l_wsh = []
