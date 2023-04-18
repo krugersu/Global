@@ -98,6 +98,29 @@ qrSelectSales = 'SELECT goodsitemid, documentid, ttime, opcode,  cquant, code Fr
 # 		cashcode = %s
 # 		and workshiftid > %s)'''
 
+# qrSimpleSelectSale =  '''select
+# 	code,
+# 	opcode,
+# 	cast(cquant as char) as cquant
+# from
+# 	goodsitem
+# where
+# 	documentid in (
+# 	select
+# 		documentid
+# 	from
+# 		document
+# 	where
+# 		cashcode = %s
+# 		and workshiftid > (
+# 		SELECT 
+#           workshiftid 
+# 		from
+# 			workshift
+# 		where
+# 			shiftnum = %s
+# 			AND time_beg > '2023-01-21 15:47:15') )'''
+
 qrSimpleSelectSale =  '''select
 	code,
 	opcode,
@@ -113,13 +136,13 @@ where
 	where
 		cashcode = %s
 		and workshiftid > (
-		SELECT
-			workshiftid
+		SELECT MAX(workshiftid) 
 		from
 			workshift
 		where
 			shiftnum = %s
 			AND time_beg > '2023-01-21 15:47:15') )'''
+
 
 qrGetNumWorkshift = 'SELECT workshiftid  from workshift where shiftnum = %s AND time_beg > "2023-01-21 15:47:15"'
   

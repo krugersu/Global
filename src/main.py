@@ -31,7 +31,7 @@ sys.path.insert(1,'/home/administrator/Global/src/')
 #sys.path.insert(1,'/home/bat/Project/Python/Kruger/Global/src/')
 """Для логирования событий"""
 
-
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 1704
 
 
 # ! Посмотреть как работает sqlite с json https://habr.com/ru/post/528882/
