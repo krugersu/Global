@@ -74,7 +74,7 @@ class req1C:
                n_shop = tortilla.wrap('http://' + self.mConfig._sections.one_C.server_ip + ':' 
                                    + self.mConfig._sections.one_C.port 
                                    + self.mConfig._sections.one_C.lquery,  auth=('Adm', '')) #,  auth=('Adm', '')
-               c_count = n_shop.test_s.get('V1/test_1?number=' +str(c_shop))
+               c_count = n_shop.test_s.get('V1/GetProductRemains?number=' +str(c_shop))
                
                
 
