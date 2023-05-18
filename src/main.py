@@ -66,7 +66,7 @@ def main():
    # Запpoc по магазинам с изменения
    tData = dbMysql.workDb(rc)
    rec_con = request.req1C(rc)
-   #mCount = request.req1C(rc)
+  # mCount = request.req1C(rc)
    
    # Список открытых смен от последнего зафиксированного времени
    l_workshift_open = tData.get_last_workshift_open(rc)
@@ -102,13 +102,11 @@ def main():
    tData.close_db_connection()      
    
    
-   # # Анализ в каких магазинах изменения
+   
    c_shop = rec_con.getQueryShop()
    logger.info("Change in stores - " + str(c_shop))
-   #print(c_shop)
    # Обработка данных по магазинам
    for curShop in c_shop:
-   #   print(curShop)    
       c_count = rec_con.shopForNumber(curShop)
       if not c_count == None:  
          tData = db.workDb(rc)

@@ -63,12 +63,12 @@ class workDb:
         
         self.c_count = c_count
         
-        self.mydb = pymysql.connect(host=rc._sections.artix.server_ip,
+        """  self.mydb = pymysql.connect(host=rc._sections.artix.server_ip,
             database=rc._sections.artix.database,
             user=rc._sections.artix.user,
             passwd=rc._sections.artix.passwd)
         self._mycursor = self.mydb.cursor() #cursor created
-        logger.info('Connect to MySql DB')    
+        logger.info('Connect to MySql DB')  """   
         
     def __enter__(self):
         
@@ -128,7 +128,7 @@ class workDb:
                     x.append(row)
                 self._cursor.executemany('INSERT INTO goodsitem VALUES(?,?,?)',x)    
                 self._all_db.commit() 
-        self.mydb.close()
+       # self.mydb.close()
 
         
     def createDB(self):
@@ -451,7 +451,7 @@ class workDb:
         
     def close_db_connection(self):
         self._mycursor.close()
-        self.mydb.close()
+   #     self.mydb.close()
         logger.info('DB is closed!!!')    
         # def recursive_items(self,dictionary):
             
