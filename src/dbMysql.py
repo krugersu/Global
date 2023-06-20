@@ -145,7 +145,9 @@ class workDb:
 
     def save_new_date_open(self):
         tl_date = self.get_last_date_open()
-        self.save_last_date_open(tl_date)
+        # Если небыло изменние по сменам, то и не перезаписываем файл, иначе пишет в файл Null
+        if tl_date is not None: 
+            self.save_last_date_open(tl_date)
 
     def get_last_date_open(self):
 

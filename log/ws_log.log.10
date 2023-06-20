@@ -1,0 +1,3 @@
+2023-06-19 18:37:01 | [WARNING] | (main.py).|main(89) | l_workshift - ()
+2023-06-19 18:39:11 | [ERROR] | (request.py).|getQueryShop(62) | HTTPConnectionPool(host='192.168.252.250', port=80): Max retries exceeded with url: /unf_vz_copy/hs/GetChangeShop/V1/GetShop (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fd2576cd570>, 'Connection to 192.168.252.250 timed out. (connect timeout=None)'))
+2023-06-19 18:39:11 | [INFO] | (main.py).|main(107) | Change in stores - None

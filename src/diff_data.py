@@ -124,7 +124,10 @@ qrSelectSales = 'SELECT goodsitemid, documentid, ttime, opcode,  cquant, code Fr
 qrSimpleSelectSale =  '''select
 	code,
 	opcode,
-	cast(cquant as char) as cquant
+	CASE   
+	WHEN opcode = 50  THEN cast(cquant as char) 
+	WHEN opcode = 58  THEN  cast( - cquant as char)
+	END as cquant
 from
 	goodsitem
 where
@@ -204,7 +207,17 @@ qrSelect_last_workshift_date = 'SELECT MAX(workshiftid) AS "MaxDate" FROM worksh
 
 #qrSelect_workshift_open = 'SELECT shiftnum ,cashcode,CAST(time_beg AS char),shopcode  FROM workshift WHERE time_end IS NULL AND time_beg >%s  '
 #qrSelect_last_workshift_date_open = 'SELECT MAX(time_beg) AS "MaxDate" FROM workshift Where time_end IS NULL'
-qrSelect_last_workshift_date_open = 'SELECT MAX(workshiftid) AS "MaxDate" FROM workshift Where time_end IS NULL'
+
+
+## Изменен запрос, иначе если все смены закрыты возвращает NULL, а должен возвращать закрытую смену
+qrSelect_last_workshift_date_open =  'SELECT MAX(workshiftid) AS "MaxDate" FROM workshift Where time_end IS NULL'
+
+# qrSelect_last_workshift_date_open = '''SELECT MAX(workshiftid)  FROM workshift
+
+# CASE   
+# 	WHEN MAX(workshiftid)  FROM workshift Where time_end IS NULL = NULL  THEN MAX(workshiftid)  FROM workshift 
+	
+# 	END AS MaxDate'''
 
 #qrSelect_workshift_open = 'SELECT shiftnum ,cashcode,CAST(time_beg AS char),shopcode, workshiftid  FROM workshift WHERE time_end IS NULL AND workshiftid >%s  '
 # Нужно проверять не только открытые смены с последней, но и закрытые, которые умпели открыть и звкрыть между запусками программы

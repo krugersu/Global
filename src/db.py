@@ -63,12 +63,12 @@ class workDb:
         
         self.c_count = c_count
         
-        """  self.mydb = pymysql.connect(host=rc._sections.artix.server_ip,
+        self.mydb = pymysql.connect(host=rc._sections.artix.server_ip,
             database=rc._sections.artix.database,
             user=rc._sections.artix.user,
             passwd=rc._sections.artix.passwd)
         self._mycursor = self.mydb.cursor() #cursor created
-        logger.info('Connect to MySql DB')  """   
+        logger.info('Connect to MySql DB')  
         
     def __enter__(self):
         
@@ -112,8 +112,8 @@ class workDb:
             #for k, v in value.items():
                 print(value['cashcode'])
                 print(value['shiftnum'])
-                logger.info('cashcode - ' + str(value['cashcode']))    
-                logger.info('shiftnum - ' + str(value['shiftnum']))    
+                logger.debug('cashcode - ' + str(value['cashcode']))    
+                logger.debug('shiftnum - ' + str(value['shiftnum']))    
                 # self._mycursor.execute(diff_data.qrGetNumWorkshift,(value['shiftnum']),)
                 # num_workshift = self._mycursor.fetchone() 
                 #print('num_workshift '+ str(num_workshift))

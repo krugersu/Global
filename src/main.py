@@ -70,7 +70,7 @@ def main():
    
    # Список открытых смен от последнего зафиксированного времени
    l_workshift_open = tData.get_last_workshift_open(rc)
-   logger.info(u'Number of open cash shifts - ' + str(len(l_workshift_open)))
+   logger.info('Number of open cash shifts - ' + str(len(l_workshift_open)))
    # Если нечего отправлять, то и не отправляем
    if len(l_workshift_open) > 0:
       
@@ -85,7 +85,7 @@ def main():
             
    # Список закрытых смен от последнего зафиксированного времени
    l_workshift = tData.get_last_workshift()
-   logger.info(u'Number of closed cash shifts - ' + str(len(l_workshift)))
+   logger.info('Number of closed cash shifts - ' + str(len(l_workshift)))
    logger.warning('l_workshift - ' + str(l_workshift ))
    # Если нечего отправлять, то и отправляем
    if len(l_workshift) > 0:
