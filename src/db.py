@@ -12,6 +12,7 @@ import logging
 import m_config
 from datetime import datetime
 from pprint import pprint
+import pysnooper
 
 #import MySQLdb
 import pymysql
@@ -141,7 +142,7 @@ class workDb:
         self._all_db.commit()
 
     
-    
+    #@pysnooper.snoop('./log/file.lg',depth=2)
     def uploadData(self,c_count, shop_Number):
                 
         self.createDB()
@@ -197,41 +198,45 @@ class workDb:
 
     def calculating_the_amount(self):
         """Запускает SQL скрипт, который переносит количество с аналагов пива на головную номенклатуру"""        
+        logger.debug('Запуск SQL скрипта, который переносит количество с аналагов пива на головную номенклатуру')  
         pathScript = Path("/home/administrator/Global/data", "upd.sql") 
         #pprint(Path("data", "upd.sql"))
         with open(pathScript, 'r') as sql_file:
             sql_script = sql_file.read()
             #print(sql_script)
         self._cursor.executescript(sql_script)
-        logger.info('Summ analog calcalating')  
+        logger.debug('Summ analog calcalating finished')  
         
     def delete_analog(self):
         """Запускает SQL скрипт, который удаляет из базы аналоги после перенесения количества на головную"""        
+        logger.debug('Запуск SQL скрипта, который удаляет из базы аналоги после перенесения количества на головную')  
         pathScript = Path("/home/administrator/Global/data", "del_a.sql") 
         with open(pathScript, 'r') as sql_file:
             sql_script = sql_file.read()
         self._cursor.executescript(sql_script)
         self._all_db.commit()
-        logger.info('Delete analog')  
+        logger.debug('Delete analog finished')  
         
     def delete_null_parent(self):
         """Запускает SQL скрипт, который удаляет из базы головную номенклатуру с нулевым количеством, т.е. которая пришла из 1С, но
             на неё не было распределения"""        
+        logger.debug('Запуск SQL скрипта, который удаляет из базы головную номенклатуру с нулевым количеством, т.е. которая пришла из 1С, но на неё не было распределения')      
         pathScript = Path("/home/administrator/Global/data", "del_null_count_parent.sql") 
         with open(pathScript, 'r') as sql_file:
             sql_script = sql_file.read()
         self._cursor.executescript(sql_script)
         self._all_db.commit()
-        logger.info('Delete 0 parent count')      
+        logger.debug('Delete 0 parent count finished')      
 
         
     def calculateSales(self):
-        """Запускает SQL скрипт, который отнимает проданное от пришедшего товара"""        
+        """Запускает SQL скрипт, который отнимает проданное от пришедшего товара""" 
+        logger.debug('Запуск SQL скрипта, который отнимает проданное от пришедшего товара')         
         pathScript = Path("/home/administrator/Global/data", "updateprod.sql") 
         with open(pathScript, 'r') as sql_file:
             sql_script = sql_file.read()
         self._cursor.executescript(sql_script)
-        logger.info('Sales calcalating')              
+        logger.debug('Sales calcalating finished')              
         
         
     def test_db(self,shop_Number):
@@ -412,18 +417,21 @@ class workDb:
     #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    
     def get_workshiftid(self,l_workshift):
         # Формируем список номеров открытых кассовых смен для добавление в БД
+        logger.debug(l_workshift)
         l_wsh = []
         for row in l_workshift:
 #            print(row[4])
             l_wsh.append(row[4])
-        print(l_wsh)
+            logger.debug('l_wsh.append')
+        logger.debug(l_wsh)
         self.add_open_workshift(l_wsh)
         
     def add_open_workshift(self,l_workshift):
         # Добавляем открытые смены в БД
             #self._mycursor.execute(diff_data.qrAdd_workshift_open, [l_workshift])
+            logger.debug(l_workshift)
             for wh in l_workshift:
-                print('open - ' + str(wh))
+                logger.debug('open - ' + str(wh))
                 self._cursor.execute(diff_data.qrAdd_workshift_open, [str(wh),])
             self._all_db.commit()
         
@@ -435,17 +443,18 @@ class workDb:
         saveworkshift_open = saveworkshift_open.fetchall()  
         l_saveworkshift_open = []
         for itm in saveworkshift_open:
-            print('for close_workshift - ' + str(itm))
+            logger.debug('for close_workshift - ' + str(itm))
             l_saveworkshift_open.append(str(itm[0]))
-        print('Номера открытых смен из БД - ')
-        print( l_saveworkshift_open)
+        logger.debug('Номера открытых смен из БД - ')
+        logger.debug( l_saveworkshift_open)
         return l_saveworkshift_open
         
         
     def del_close_workshift(self,l_workshift):
+        logger.debug(l_workshift)
         saveworkshift_del = self._all_db.cursor()       
         for wh in l_workshift:
-            print('delete - ' + str(wh[5]))
+            logger.debug('delete - ' + str(wh[5]))
             saveworkshift_del.execute(diff_data.qrDel_workshift_close,[str(wh[5])])
         self._all_db.commit()
         

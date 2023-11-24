@@ -43,8 +43,8 @@ class workDb:
         # ++
         # Номера открытых смен в БД        
         l_close_workshift = self.tData.get_close_workshift()
-        print('l_close_workshift')
-        print(l_close_workshift)
+        logger.debug('l_close_workshift')
+        logger.debug(l_close_workshift)
         # -- 
         try:
             # ++
@@ -64,27 +64,26 @@ class workDb:
 
         logger.info('Getting data on the last closed cash shifts')
         l_workshift = self._mycursor.fetchall()
-        print('Смены которые были открыты, а теперь закрыты - ')
-        print(l_workshift)
+        logger.debug('Смены которые были открыты, а теперь закрыты - ' + str(l_workshift))
         # self._mycursor.close()
         with open('data.json', 'w', encoding='utf-8') as f:
-            logging.info('Writing a new date for closed shifts to a file')
+            logger.info('Writing a new date for closed shifts to a file')
             json.dump(l_workshift, f, ensure_ascii=False,
                     indent=4,  default=str)
         # self.mydb.close()
 
-        logging.info('sent workshift for 1C')
-        logging.info('workshift - ' + str(l_workshift))
+        logger.info('sent workshift for 1C')
+        logger.info('workshift - ' + str(l_workshift))
         self.tData.del_close_workshift(l_workshift)
         return l_workshift
 
 
     def get_last_workshift_open(self,rc):
         l_date = self.load_last_date_open()
-#        logging.info('workshift - ' + str(l_workshift))
+        logger.debug('Номер от которого смотрим открытые смены - ' + str(l_date))
         self._mycursor.execute(diff_data.qrSelect_workshift_open, [l_date])
         l_workshift = self._mycursor.fetchall()
-        
+        logger.debug(l_workshift)
         self.tData.get_workshiftid(l_workshift)
         with open('data_open.json', 'w', encoding='utf-8') as f:
             # json_string = json.dumps(l_workshift)
@@ -94,8 +93,8 @@ class workDb:
                     indent=4,  default=str)
         # self.mydb.close()
 
-        logging.info('sent workshift_open for 1C')
-        logging.info('workshift_open - ' + str(l_workshift))
+        logger.info('sent workshift_open for 1C')
+        logger.info('workshift_open - ' + str(l_workshift))
 
         return l_workshift
 
@@ -113,7 +112,7 @@ class workDb:
             outfile.write(str(t_date))
 
     def load_last_date(self):
-        logging.info(
+        logger.info(
             'Reading the file with the date of the last closed cash shift')
         filename = '/home/administrator/Global/src/last_date.txt'
         #filename = '/home/bat/Project/Python/Kruger/Global/src/last_date.txt'
@@ -121,7 +120,7 @@ class workDb:
             return (outfile.readline())
 
     def load_last_date_open(self):
-        logging.info(
+        logger.info(
             'Reading the file with the date of the last openeded cash shift')
 
         filename = '/home/administrator/Global/src/last_date_open.txt'
@@ -133,7 +132,7 @@ class workDb:
 
         self._mycursor.execute(diff_data.qrSelect_last_workshift_date)
         l_date = self._mycursor.fetchone()
-        logging.info(
+        logger.info(
             'Getting the date of the last closed cash shift from the database - ' + str(l_date))
         # self.mydb.close()
 
@@ -154,7 +153,7 @@ class workDb:
         self._mycursor.execute(diff_data.qrSelect_last_workshift_date_open)
         l_date = self._mycursor.fetchone()
         # self._mycursor.close()
-        logging.info(
+        logger.info(
             'Getting the date of the last opened cash shift from the database - ' + str(l_date))
         # logging.info(
         #      'Cursor closed')
@@ -175,5 +174,5 @@ class workDb:
     def close_db_connection(self):
         self._mycursor.close()
         self.mydb.close()
-        logging.info('DB is closed!!!')
+        logger.info('DB is closed!!!')
 

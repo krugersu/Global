@@ -238,7 +238,10 @@ qrSelect_workshiftnew = '''SELECT shiftnum , shopcode, CAST(time_end AS char) , 
                         FROM  workshift WHERE time_end IS NOT NULL AND workshiftid  IN ({}) '''
 
 
-qrAdd_workshift_open = '''INSERT INTO wh (workshiftid) VALUES (?)'''
+#qrAdd_workshift_open = '''INSERT INTO wh (workshiftid) VALUES (?)'''
+qrAdd_workshift_open = '''INSERT OR IGNORE INTO wh (workshiftid) VALUES (?)'''
+
+
 
 qrGet_saveworkshift_open = ''' SELECT * FROM wh'''
 

@@ -36,7 +36,7 @@ class m_Config:
         if os.path.exists(self.devpathConfFile):
             conf.read(self.devpathConfFile,encoding="utf-8")
         else:
-            logger.error('File .ini not exist')
+            logger.critical(' .ini файл не обнаружен!')
             return None
         return conf
     

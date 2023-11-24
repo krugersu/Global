@@ -34,7 +34,7 @@ class req1C:
           try:
                r = requests.get('http://' + self.mConfig._sections.one_C.server_ip + ':' 
                                    + self.mConfig._sections.one_C.port 
-                                   + self.mConfig._sections.one_C.lquery,  auth=('Adm', ''))
+                                   + self.mConfig._sections.one_C.lquery,  auth=('Adm', '1'))
 # ?  r = requests.get('http://192.168.252.250:8082/UNF_test/hs/test_s/V1/test')
                r.encoding = 'utf-8' 
                c_count = r.json()
@@ -52,10 +52,11 @@ class req1C:
               
                r = requests.get('http://' + self.mConfig._sections.one_C.server_ip + ':' 
                                    + self.mConfig._sections.one_C.port 
-                                   + self.mConfig._sections.one_C.shopquery,  auth=('Adm', ''))  #  ,auth=('Adm', ''))
+                                   + self.mConfig._sections.one_C.shopquery,  auth=('Adm', '1'))  #  ,auth=('Adm', ''))
                     
                r.encoding = 'utf-8' 
                c_count = r.json()
+               logger.info(c_count)
                listShop = self._getDirM(c_count)
                return listShop  # c_count
           except Exception as e:
@@ -73,7 +74,7 @@ class req1C:
                
                n_shop = tortilla.wrap('http://' + self.mConfig._sections.one_C.server_ip + ':' 
                                    + self.mConfig._sections.one_C.port 
-                                   + self.mConfig._sections.one_C.lquery,  auth=('Adm', '')) #,  auth=('Adm', '')
+                                   + self.mConfig._sections.one_C.lquery,  auth=('Adm', '1')) #,  auth=('Adm', '')
                c_count = n_shop.test_s.get('V1/GetProductRemains?number=' +str(c_shop))
                
                
@@ -110,23 +111,23 @@ class req1C:
           try:
                r = requests.post('http://' + self.mConfig._sections.one_C.server_ip + ':'
                                    + self.mConfig._sections.one_C.port
-                                   + self.mConfig._sections.one_C.workshift,   auth=('Adm', ''),data=None, json = l_workshift)
+                                   + self.mConfig._sections.one_C.workshift,   auth=('Adm', '1'),data=None, json = l_workshift)
           
           except Exception as e:
-               logging.info('status_code - ' + str(r.status_code))
-               logging.exception(e, exc_info=False)
+               logger.info('status_code - ' + str(r.status_code))
+               logger.exception(e, exc_info=False)
                
           return (r.status_code)
 
      def post_workshift_open(self,l_workshift_open):
-          
+          logger.debug('Отправка запроса с открытыми сменами: ' + self.mConfig._sections.one_C.workshift_open)
           try:
                r = requests.post('http://' + self.mConfig._sections.one_C.server_ip + ':'
                                    + self.mConfig._sections.one_C.port
-                                   + self.mConfig._sections.one_C.workshift_open,   auth=('Adm', ''), data=None, json = l_workshift_open)
+                                   + self.mConfig._sections.one_C.workshift_open,   auth=('Adm', '1'), data=None, json = l_workshift_open)
                
           except Exception as e:
-               logging.info('status_code - ' + str(r.status_code))
-               logging.exception(e, exc_info=False)
-               
+               logger.info('status_code - ' + str(r.status_code))
+               logger.exception(e, exc_info=False)
+          logger.debug('Статус возврата запроса с открытыми сменами: ' +  str(r.status_code))     
           return (r.status_code)

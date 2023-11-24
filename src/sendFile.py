@@ -18,38 +18,35 @@ secret = 'adm@#747911ART'
 port = 22
 
 
+#!!!!!!!!!!!!!!!!  Если будут ошибки при выгрузке и не будет работать - уброать try exept и  ssh.close()
+     
 
 def sendFile(fileName,shopNumber,typeFile):
     
     nameFileDest = 'pos'
-    ssh = paramiko.SSHClient()
-    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    ssh.connect(host, username=user, password=secret,timeout=4)
-    # time.sleep(1)
-    # ssh.connect('127.0.0.1', username='bat', 
-    #     password='Uytplj12')
-    # stdin, stdout, stderr =ssh.exec_command("uptime")
+    try:
+      ssh = paramiko.SSHClient()
+      ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+      ssh.connect(host, username=user, password=secret,timeout=4)
     
-    # stdout.readlines()
-    ftp = ssh.open_sftp()
-    if typeFile:
-        ftp.put(fileName, '/opt/OBMEN/dict/'+ shopNumber +'/' + 'pos'+ shopNumber+'.aif')
+      ftp = ssh.open_sftp()
+      if typeFile:
+          ftp.put(fileName, '/opt/OBMEN/dict/'+ shopNumber +'/' + 'pos'+ shopNumber+'.aif')
         #ftp.put('./upload/'+fileName.name, '/opt/OBMEN/dict/'+ shopNumber +'/' + 'pos'+ shopNumber+'.aif')
-        ftp.put('/home/administrator/Global/upload/'+fileName.name, '/opt/OBMEN/dict/'+ shopNumber +'/' + 'pos'+ shopNumber+'.aif')
+          ftp.put('/home/administrator/Global/upload/'+fileName.name, '/opt/OBMEN/dict/'+ shopNumber +'/' + 'pos'+ shopNumber+'.aif')
         
-      #  shutil.copyfile('/home/bat/Project/Python/Kruger/Artix_gen/upload/postest.aif', '/mnt/share/test/postest.aif')
-        # source = Path('/home/bat/Project/Python/Kruger/Artix_gen/upload/test.aif')
-        # destination = Path('/mnt/share/test/postest.aif')
-        # destination.write_bytes(source.read_bytes())
-        print(fileName)
-      #  print('./upload/'+fileName.name)
-      #  print(shopNumber)
-        print('Upload finished_1')
-    else:    
-        ftp.put(fileName, '/opt/OBMEN/dict/'+ shopNumber +'/' + 'pos'+ shopNumber+'.flz')
-     #   shutil.copyfile('./upload/'+fileName.name, '/mnt/share/'+ shopNumber +'/' + 'pos'+ shopNumber+'.flz')
-     #   time.sleep(5)
-        print('Upload finished_2')
+          logger.info('Upload file *aif - ' + fileName.name)
+          logger.info(fileName)
+      else:    
+          ftp.put(fileName, '/opt/OBMEN/dict/'+ shopNumber +'/' + 'pos'+ shopNumber+'.flz')
+          logger.info('Upload file *flz - ' + fileName.name)
+          logger.info(fileName)
+    except (paramiko.AuthenticationException,
+                paramiko.ssh_exception.NoValidConnectionsError) as e:
+            logger.error(e)
+    except paramiko.SSHException as e:
+            logger.error(e)
+            
     # ftp.close()
-    # ssh.close()
+    ssh.close()
     

@@ -6,10 +6,14 @@ LOGGING_CONFIG = {
 
     'formatters': {
         'default_formatter': {
-            'format': '%(asctime)s | [%(levelname)s] | (%(filename)s).|%(funcName)s(%(lineno)d) | %(message)s'
+            'format': '%(asctime)s | [%(levelname)s] | (%(filename)s) | %(funcName)s(%(lineno)d) | %(message)s'
             ,'datefmt':'%Y-%m-%d %H:%M:%S'
             },
+        
     },
+    
+    
+    
     
     "json": {  # The formatter name
             "()": "pythonjsonlogger.jsonlogger.JsonFormatter",  # The class to instantiate!

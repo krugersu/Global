@@ -18,6 +18,7 @@ import create_aif
 import request
 import settings
 import logging.config
+import pysnooper
 
 # Test
 #logger = app_logger.get_logger(__name__)
@@ -31,6 +32,9 @@ sys.path.insert(1,'/home/administrator/Global/src/')
 #sys.path.insert(1,'/home/bat/Project/Python/Kruger/Global/src/')
 """Для логирования событий"""
 
+
+
+
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 1704
 
 
@@ -40,6 +44,7 @@ sys.path.insert(1,'/home/administrator/Global/src/')
 
 
 # Functions
+#@pysnooper.snoop('./log/file.log',depth=2)
 def main():
    """ Main program entry. """
    # Если это первый запуск системы
@@ -51,7 +56,8 @@ def main():
 
    
    #path = Path("config", "config.ini") 
-   logger.info("Start programs")
+   #logger.info("Start programs")
+   logger.info("Запуск программы")
    logger.info("Current path " + str(cPath))
 
    
@@ -70,7 +76,8 @@ def main():
    
    # Список открытых смен от последнего зафиксированного времени
    l_workshift_open = tData.get_last_workshift_open(rc)
-   logger.info('Number of open cash shifts - ' + str(len(l_workshift_open)))
+  # logger.info('Number of open cash shifts - ' + str(len(l_workshift_open)))
+   logger.info('Номера открытых кассовых смен - ' + str(len(l_workshift_open)))
    # Если нечего отправлять, то и не отправляем
    if len(l_workshift_open) > 0:
       
@@ -85,7 +92,8 @@ def main():
             
    # Список закрытых смен от последнего зафиксированного времени
    l_workshift = tData.get_last_workshift()
-   logger.info('Number of closed cash shifts - ' + str(len(l_workshift)))
+   #logger.info('Number of closed cash shifts - ' + str(len(l_workshift)))
+   logger.info('Номера закрытых кассовых смен - ' + str(len(l_workshift)))
    logger.warning('l_workshift - ' + str(l_workshift ))
    # Если нечего отправлять, то и отправляем
    if len(l_workshift) > 0:
@@ -97,14 +105,15 @@ def main():
       if status_code == 200:
             tData.save_new_date()
       else:
-            logger.warning('status_code - ' + str(status_code ))
+            logger.error('status_code - ' + str(status_code ))
    
    tData.close_db_connection()      
    
    
    
    c_shop = rec_con.getQueryShop()
-   logger.info("Change in stores - " + str(c_shop))
+   #logger.info("Change in stores - " + str(c_shop))
+   logger.info("Обнаружены изменения по следующим магазинам - " + str(c_shop))
    # Обработка данных по магазинам
    for curShop in c_shop:
       c_count = rec_con.shopForNumber(curShop)
@@ -113,7 +122,9 @@ def main():
          tData.uploadData(c_count, curShop)
    #      tData.close_db_connection()  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    
-   logger.info(u'End programs')   
+   
+   #logger.info(u'End programs')   
+   logger.info(u'Завершение работы программы')   
    logger.info(u'*****************************************************************')   
 
    
@@ -146,8 +157,10 @@ if __name__ == "__main__":
    if not rc == None:
       main()
    else:
-      logger.error('Configuration file not found')
-      logger.info('The program has finished its work')
+      #logger.error('Configuration file not found')
+      logger.critical('Файл конфигурации не обнаружен!')
+      #logger.info('The program has finished its work')
+      logger.critical('Аварийное завершение работы программы!!!')
       
    #while True:
    #    schedule.run_pending()
